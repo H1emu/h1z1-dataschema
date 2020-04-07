@@ -1,4 +1,4 @@
-require("bufferext");
+require("extbuffer");
 
 var DEBUG = false,
     DEBUGINDENT = 0;
