@@ -6,9 +6,5 @@
     "repository" : {
         "type" : "git", 
         "url" : "https://github.com/jseidelin/dataschema.git"
-    },
-    "dependencies": {
-        "bufferext": "git+ssh://git@github.com:jseidelin/bufferext.git"
     }
-
 }
