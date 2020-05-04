@@ -93,10 +93,10 @@ function parse(fields, data, offset, referenceData) {
                 }
                 break;
             case "uint32":
+                if(offset > 1522){ // kindy hacky
+                    offset = 1522
+                }
                 result[field.name] = data.readUInt32LE(offset);
-                if(offset < 1522){ // kindy hacky
-                offset += 4;
-            }
                 break;
             case "int32":
                 result[field.name] = data.readInt32LE(offset);
