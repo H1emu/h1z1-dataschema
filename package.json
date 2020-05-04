@@ -6,5 +6,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/QuentinGruber/h1z1-dataschema"
+  },
+  "dependencies": {
+    "h1z1-buffer": "^1.0.0"
   }
 }

@@ -1,4 +1,4 @@
-require("extbuffer");
+require("h1z1-buffer");
 
 var DEBUG = false,
     DEBUGINDENT = 0;
