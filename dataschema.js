@@ -93,10 +93,8 @@ function parse(fields, data, offset, referenceData) {
                 }
                 break;
             case "uint32":
-                if(offset > 1522){ // kindy hacky
-                    offset = 1522
-                }
                 result[field.name] = data.readUInt32LE(offset);
+                offset += 4;
                 break;
             case "int32":
                 result[field.name] = data.readInt32LE(offset);
@@ -440,7 +438,7 @@ function pack(fields, object, data, offset, referenceData) {
                 break;
             case "uint64":
                 for (var j=0;j<8;j++) {
-                    data.writeUInt8(parseInt(String(value).substr(2 + (7 - j) * 2, 2), 16), offset + j);
+                    data.writeUInt8(parseInt(value.substr(2 + (7 - j) * 2, 2), 16), offset + j);
                 }
                 offset += 8;
                 break;
