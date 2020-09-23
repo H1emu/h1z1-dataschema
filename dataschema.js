@@ -255,7 +255,7 @@ function calculateDataLength(fields, object, referenceData) {
             if ("defaultValue" in field) {
                 value = field.defaultValue;
             } else {
-                throw "Field " + field.name + " not found in data object: " + JSON.stringify(object, null, 4);
+                console.error("Field " + field.name + " not found in data object: " + JSON.stringify(object, null, 4));
             }
         } else {
             value = object[field.name];
@@ -379,7 +379,7 @@ function pack(fields, object, data, offset, referenceData) {
             if ("defaultValue" in field) {
                 value = field.defaultValue;
             } else {
-                throw "Field " + field.name + " not found in data object and no default value";
+                console.error("Field " + field.name + " not found in data object and no default value");
             }
         } else {
             value = object[field.name];
@@ -409,7 +409,7 @@ function pack(fields, object, data, offset, referenceData) {
                         offset += result.length;
                     }
                 } else {
-                    throw "Invalid array schema";
+                    console.error("Invalid array schema");
                 }
                 break;
             case "bytes":
