@@ -1,11 +1,11 @@
 {
   "name": "h1z1-dataschema",
   "description": "Parsing and packing structured binary data formats for h1z1",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dataschema.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/QuentinGruber/h1z1-dataschema"
+    "url": "https://github.com/H1emu/h1z1-dataschema"
   },
   "dependencies": {
     "h1z1-buffer": "^1.0.0"
