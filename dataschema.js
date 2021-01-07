@@ -397,6 +397,9 @@ function pack(fields, object, data, offset, referenceData) {
                     data.writeUInt8(value.length, offset);
                     offset += 1;
                 }
+                if(field.length && value.length < field.length){
+                    console.log(`Array (${field.name}) length isn't respected ${value.length}/${field.length}`)
+                }
                 if (field.fields) {
                     for (j=0;j<value.length;j++) {
                         result = pack(field.fields, value[j], data, offset, referenceData);
