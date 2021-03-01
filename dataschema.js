@@ -267,11 +267,7 @@ function calculateDataLength(fields, object, referenceData) {
         break;
       case "array":
       case "array8":
-        if (field.type == "array") {
-          length += 4;
-        } else {
-          length += 1;
-        }
+        length += field.type == "array" ? 4 : 1;
         elements = object[field.name];
         if (field.fields) {
           for (j = 0; j < elements.length; j++) {
@@ -298,11 +294,7 @@ function calculateDataLength(fields, object, referenceData) {
       case "byteswithlength":
         length += 4;
         if (value) {
-          if (field.fields) {
-            length += calculateDataLength(field.fields, value, referenceData);
-          } else {
-            length += value.length;
-          }
+          length += field.fields ? calculateDataLength(field.fields, value, referenceData) : value.length;
         }
         break;
       case "int64":
