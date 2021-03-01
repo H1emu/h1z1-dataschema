@@ -1,7 +1,7 @@
 {
   "name": "h1z1-dataschema",
   "description": "Parsing and packing structured binary data formats for h1z1",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "dataschema.js",
   "repository": {
     "type": "git",
