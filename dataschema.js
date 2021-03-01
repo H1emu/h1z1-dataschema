@@ -373,14 +373,14 @@ function pack(fields, object, data, offset, referenceData) {
 
   if (!fields) {
     return {
-      data: new Buffer(0),
+      data: new Buffer.alloc(0),
       length: 0,
     };
   }
 
   if (!data) {
     dataLength = calculateDataLength(fields, object, referenceData);
-    data = new Buffer(dataLength);
+    data = new Buffer.alloc(dataLength);
   }
   offset = offset || 0;
   startOffset = offset;
@@ -440,7 +440,7 @@ function pack(fields, object, data, offset, referenceData) {
         break;
       case "bytes":
         if (!Buffer.isBuffer(value)) {
-          value = new Buffer(value);
+          value = new Buffer.from(value);
         }
         data.writeBytes(value, offset, field.length);
         offset += field.length;
@@ -451,7 +451,7 @@ function pack(fields, object, data, offset, referenceData) {
             value = pack(field.fields, value, null, null, referenceData).data;
           }
           if (!Buffer.isBuffer(value)) {
-            value = new Buffer(value);
+            value = new Buffer.from(value);
           }
           data.writeUInt32LE(value.length, offset);
           offset += 4;
