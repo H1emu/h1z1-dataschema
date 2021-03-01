@@ -294,7 +294,9 @@ function calculateDataLength(fields, object, referenceData) {
       case "byteswithlength":
         length += 4;
         if (value) {
-          length += field.fields ? calculateDataLength(field.fields, value, referenceData) : value.length;
+          length += field.fields
+            ? calculateDataLength(field.fields, value, referenceData)
+            : value.length;
         }
         break;
       case "int64":
