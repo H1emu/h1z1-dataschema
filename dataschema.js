@@ -270,13 +270,14 @@ function calculateDataLength(fields, object, referenceData) {
         length += field.type == "array" ? 4 : 1;
         elements = object[field.name];
         if (field.fields) {
+          if(elements?.length){
           for (j = 0; j < elements.length; j++) {
             length += calculateDataLength(
               field.fields,
               elements[j],
               referenceData
             );
-          }
+          }}
         } else if (field.elementType) {
           elementSchema = [{ name: "element", type: field.elementType }];
           for (j = 0; j < elements.length; j++) {
