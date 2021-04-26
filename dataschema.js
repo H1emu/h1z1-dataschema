@@ -267,17 +267,20 @@ function calculateDataLength(fields, object, referenceData) {
         break;
       case "array":
       case "array8":
-        length += field.type == "array" ? 4 : 1;
+        if (!field.fixedLength) {
+          length += field.type == "array" ? 4 : 1;
+        }
         elements = object[field.name];
         if (field.fields) {
-          if(elements?.length){
-          for (j = 0; j < elements.length; j++) {
-            length += calculateDataLength(
-              field.fields,
-              elements[j],
-              referenceData
-            );
-          }}
+          if (elements?.length) {
+            for (j = 0; j < elements.length; j++) {
+              length += calculateDataLength(
+                field.fields,
+                elements[j],
+                referenceData
+              );
+            }
+          }
         } else if (field.elementType) {
           elementSchema = [{ name: "element", type: field.elementType }];
           for (j = 0; j < elements.length; j++) {
@@ -400,12 +403,14 @@ function pack(fields, object, data, offset, referenceData) {
         break;
       case "array":
       case "array8":
-        if (field.type == "array") {
-          data.writeUInt32LE(value.length, offset);
-          offset += 4;
-        } else {
-          data.writeUInt8(value.length, offset);
-          offset += 1;
+        if (!field.fixedLength) {
+          if (field.type == "array") {
+            data.writeUInt32LE(value.length, offset);
+            offset += 4;
+          } else {
+            data.writeUInt8(value.length, offset);
+            offset += 1;
+          }
         }
         if (field.length && value.length < field.length) {
           console.log(
