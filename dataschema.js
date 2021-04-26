@@ -412,9 +412,9 @@ function pack(fields, object, data, offset, referenceData) {
             offset += 1;
           }
         }
-        if (field.length && value.length < field.length) {
-          console.log(
-            `Array (${field.name}) length isn't respected ${value.length}/${field.length}`
+        if (field.fixedLength && field.fixedLength != value.length) {
+          console.error(
+            `Array (${field.name}) length isn't respected ${value.length}/${field.fixedLength}`
           );
         }
         if (field.fields) {
