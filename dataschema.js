@@ -116,6 +116,14 @@ function parse(fields, data, offset, referenceData) {
         result[field.name] = data.readInt8(offset);
         offset += 1;
         break;
+      case "rgb":
+        result[field.name] = {
+          r: data.readInt8(offset),
+          g: data.readInt8(offset + 1),
+          b: data.readInt8(offset + 2),
+        };
+        offset += 3;
+        break;
       case "rgba":
         result[field.name] = {
           r: data.readInt8(offset),
@@ -308,6 +316,9 @@ function calculateDataLength(fields, object, referenceData) {
       case "double":
         length += 8;
         break;
+      case "rgb":
+        length += 3;
+        break
       case "uint32":
       case "int32":
       case "float":
@@ -495,6 +506,12 @@ function pack(fields, object, data, offset, referenceData) {
         data.writeInt8(value, offset);
         offset += 1;
         break;
+      case "rgb":
+          data.writeInt8(value.r, offset);
+          data.writeInt8(value.g, offset + 1);
+          data.writeInt8(value.b, offset + 2);
+          offset += 3;
+          break;
       case "rgba":
         data.writeInt8(value.r, offset);
         data.writeInt8(value.g, offset + 1);
