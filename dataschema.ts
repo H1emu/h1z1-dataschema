@@ -1,6 +1,6 @@
 import "h1z1-buffer";
 
-function parse(fields, data, offset, referenceData) {
+function parse(fields, data, offset, referenceData?) {
   let startOffset = offset,
     result = {},
     numElements: number,
@@ -249,7 +249,7 @@ function parse(fields, data, offset, referenceData) {
   };
 }
 
-function calculateDataLength(fields, object, referenceData) {
+function calculateDataLength(fields, object, referenceData?) {
   let length = 0,
   value,
     j,
@@ -378,7 +378,7 @@ function calculateDataLength(fields, object, referenceData) {
   return length;
 }
 
-function pack(fields, object, data, offset, referenceData) {
+function pack(fields, object, data?, offset?, referenceData?) {
   var dataLength, value, result, startOffset, elementSchema, flag, flagValue;
 
   if (!fields) {
