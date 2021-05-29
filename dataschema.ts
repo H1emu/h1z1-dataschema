@@ -1,8 +1,8 @@
 import "h1z1-buffer";
 
-function parse(fields, data, offset, referenceData?) {
-  let startOffset = offset,
-    result = {},
+function parse(fields:any, data:any, offset:number, referenceData?:any):any {
+  const startOffset = offset;
+    let result:any = {},
     numElements: number,
     elements,
     element,
@@ -153,8 +153,7 @@ function parse(fields, data, offset, referenceData?) {
         break;
       case "variabletype8":
         var vtypeidx = data.readUInt8(offset),
-          vtype = field.types[vtypeidx],
-          variableSchema;
+          vtype = field.types[vtypeidx]
         offset += 1;
         if (vtype) {
           if (Array.isArray(vtype)) {
@@ -249,7 +248,7 @@ function parse(fields, data, offset, referenceData?) {
   };
 }
 
-function calculateDataLength(fields, object, referenceData?) {
+function calculateDataLength(fields:any[], object:any, referenceData?:any):number {
   let length = 0,
   value,
     j,
@@ -378,7 +377,7 @@ function calculateDataLength(fields, object, referenceData?) {
   return length;
 }
 
-function pack(fields, object, data?, offset?, referenceData?) {
+function pack(fields, object, data?, offset?, referenceData?):{ data: Buffer; length: number; } {
   var dataLength, value, result, startOffset, elementSchema, flag, flagValue;
 
   if (!fields) {
