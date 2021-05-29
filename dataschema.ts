@@ -1,9 +1,9 @@
-require("h1z1-buffer");
+import "h1z1-buffer";
 
-function parse(fields, data, offset, referenceData) {
-  var startOffset = offset,
+export function parse(fields, data, offset, referenceData) {
+  let startOffset = offset,
     result = {},
-    numElements,
+    numElements: number,
     elements,
     element,
     elementSchema,
@@ -165,8 +165,8 @@ function parse(fields, data, offset, referenceData) {
               value: variable.result,
             };
           } else {
-            var variableSchema = [{ name: "element", type: vtype }];
-            var variable = parse(variableSchema, data, offset, referenceData);
+            const variableSchema = [{ name: "element", type: vtype }];
+            const variable:any = parse(variableSchema, data, offset, referenceData);
             offset += variable.length;
             result[field.name] = {
               type: vtypeidx,
@@ -249,8 +249,9 @@ function parse(fields, data, offset, referenceData) {
   };
 }
 
-function calculateDataLength(fields, object, referenceData) {
-  var length = 0,
+export function calculateDataLength(fields, object, referenceData) {
+  let length = 0,
+  value,
     j,
     elements;
   fields = fields || [];
@@ -290,7 +291,7 @@ function calculateDataLength(fields, object, referenceData) {
             }
           }
         } else if (field.elementType) {
-          elementSchema = [{ name: "element", type: field.elementType }];
+          let elementSchema = [{ name: "element", type: field.elementType }];
           for (j = 0; j < elements.length; j++) {
             length += calculateDataLength(
               elementSchema,
@@ -377,19 +378,19 @@ function calculateDataLength(fields, object, referenceData) {
   return length;
 }
 
-function pack(fields, object, data, offset, referenceData) {
+export function pack(fields, object, data, offset, referenceData) {
   var dataLength, value, result, startOffset, elementSchema, flag, flagValue;
 
   if (!fields) {
     return {
-      data: new Buffer.alloc(0),
+      data: new (Buffer.alloc as any)(0),
       length: 0,
     };
   }
 
   if (!data) {
     dataLength = calculateDataLength(fields, object, referenceData);
-    data = new Buffer.alloc(dataLength);
+    data = new (Buffer.alloc as any)(dataLength);
   }
   offset = offset || 0;
   startOffset = offset;
@@ -451,7 +452,7 @@ function pack(fields, object, data, offset, referenceData) {
         break;
       case "bytes":
         if (!Buffer.isBuffer(value)) {
-          value = new Buffer.from(value);
+          value = new (Buffer.from as any)(value);
         }
         data.writeBytes(value, offset, field.length);
         offset += field.length;
@@ -462,7 +463,7 @@ function pack(fields, object, data, offset, referenceData) {
             value = pack(field.fields, value, null, null, referenceData).data;
           }
           if (!Buffer.isBuffer(value)) {
-            value = new Buffer.from(value);
+            value = new (Buffer.from as any)(value);
           }
           data.writeUInt32LE(value.length, offset);
           offset += 4;
@@ -609,7 +610,3 @@ function pack(fields, object, data, offset, referenceData) {
     length: offset - startOffset,
   };
 }
-
-exports.sizeOf = calculateDataLength;
-exports.parse = parse;
-exports.pack = pack;
