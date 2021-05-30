@@ -16,11 +16,11 @@ function parse(
     string,
     length,
     value,
-    flags,
+    flags:any,
     flag;
 
   fields = fields || [];
-  fields.forEach((field) => {
+  fields.forEach((field:any) => {
     if (field.name in result) {
       console.warn(
         "DataSchema::parse(): Duplicate field name in schema: " + field.name
@@ -264,7 +264,7 @@ function calculateDataLength(
   referenceData?: any
 ): number {
   let length = 0,
-    value,
+    value:any,
     elements;
   fields = fields || [];
   fields.forEach((field) => {
@@ -391,13 +391,13 @@ function calculateDataLength(
 }
 
 function pack(
-  fields,
-  object,
-  data?,
-  offset?,
-  referenceData?
+  fields:any,
+  object:any,
+  data?:any,
+  offset?:any,
+  referenceData?:any
 ): { data: Buffer; length: number } {
-  let dataLength, value, result, elementSchema, flag, flagValue;
+  let dataLength, value :any, result, elementSchema, flag, flagValue;
 
   if (!fields) {
     return {
@@ -413,7 +413,7 @@ function pack(
   offset = offset || 0;
   const startOffset = offset
 
-  fields.forEach((field) => {
+  fields.forEach((field:any) => {
     if (!(field.name in object)) {
       if ("defaultValue" in field) {
         value = field.defaultValue;
