@@ -7,8 +7,8 @@ function parse(
   referenceData?: any
 ): any {
   const startOffset = offset;
-  let result: any = {},
-    numElements: number,
+  const result: any = {}
+  let numElements: number,
     elements,
     element,
     elementSchema,
@@ -303,7 +303,7 @@ function calculateDataLength(
             }
           }
         } else if (field.elementType) {
-          let elementSchema = [{ name: "element", type: field.elementType }];
+          const elementSchema = [{ name: "element", type: field.elementType }];
           for (let j = 0; j < elements.length; j++) {
             length += calculateDataLength(
               elementSchema,
@@ -397,7 +397,7 @@ function pack(
   offset?,
   referenceData?
 ): { data: Buffer; length: number } {
-  let dataLength, value, result, startOffset, elementSchema, flag, flagValue;
+  let dataLength, value, result, elementSchema, flag, flagValue;
 
   if (!fields) {
     return {
@@ -411,7 +411,7 @@ function pack(
     data = new (Buffer.alloc as any)(dataLength);
   }
   offset = offset || 0;
-  startOffset = offset;
+  const startOffset = offset
 
   fields.forEach((field) => {
     if (!(field.name in object)) {
