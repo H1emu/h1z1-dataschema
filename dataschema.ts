@@ -1,8 +1,13 @@
 import "h1z1-buffer";
 
-function parse(fields:any, data:any, offset:number, referenceData?:any):any {
+function parse(
+  fields: any,
+  data: any,
+  offset: number,
+  referenceData?: any
+): any {
   const startOffset = offset;
-    let result:any = {},
+  let result: any = {},
     numElements: number,
     elements,
     element,
@@ -153,7 +158,7 @@ function parse(fields:any, data:any, offset:number, referenceData?:any):any {
         break;
       case "variabletype8":
         const vtypeidx = data.readUInt8(offset),
-            vtype = field.types[vtypeidx];
+          vtype = field.types[vtypeidx];
         offset += 1;
         if (vtype) {
           if (Array.isArray(vtype)) {
@@ -165,7 +170,12 @@ function parse(fields:any, data:any, offset:number, referenceData?:any):any {
             };
           } else {
             const variableSchema = [{ name: "element", type: vtype }];
-            const variable:any = parse(variableSchema, data, offset, referenceData);
+            const variable: any = parse(
+              variableSchema,
+              data,
+              offset,
+              referenceData
+            );
             offset += variable.length;
             result[field.name] = {
               type: vtypeidx,
@@ -248,9 +258,13 @@ function parse(fields:any, data:any, offset:number, referenceData?:any):any {
   };
 }
 
-function calculateDataLength(fields:any[], object:any, referenceData?:any):number {
+function calculateDataLength(
+  fields: any[],
+  object: any,
+  referenceData?: any
+): number {
   let length = 0,
-  value,
+    value,
     elements;
   fields = fields || [];
   fields.forEach((field) => {
@@ -317,7 +331,7 @@ function calculateDataLength(fields:any[], object:any, referenceData?:any):numbe
         break;
       case "rgb":
         length += 3;
-        break
+        break;
       case "uint32":
       case "int32":
       case "float":
@@ -359,7 +373,7 @@ function calculateDataLength(fields:any[], object:any, referenceData?:any):numbe
         if (Array.isArray(vtype)) {
           length += calculateDataLength(vtype, value.value, referenceData);
         } else {
-          const variableSchema = [{name: "element", type: vtype}];
+          const variableSchema = [{ name: "element", type: vtype }];
           length += calculateDataLength(
             variableSchema,
             { element: value.value },
@@ -376,7 +390,13 @@ function calculateDataLength(fields:any[], object:any, referenceData?:any):numbe
   return length;
 }
 
-function pack(fields, object, data?, offset?, referenceData?):{ data: Buffer; length: number; } {
+function pack(
+  fields,
+  object,
+  data?,
+  offset?,
+  referenceData?
+): { data: Buffer; length: number } {
   let dataLength, value, result, startOffset, elementSchema, flag, flagValue;
 
   if (!fields) {
@@ -506,11 +526,11 @@ function pack(fields, object, data?, offset?, referenceData?):{ data: Buffer; le
         offset += 1;
         break;
       case "rgb":
-          data.writeInt8(value.r, offset);
-          data.writeInt8(value.g, offset + 1);
-          data.writeInt8(value.b, offset + 2);
-          offset += 3;
-          break;
+        data.writeInt8(value.r, offset);
+        data.writeInt8(value.g, offset + 1);
+        data.writeInt8(value.b, offset + 2);
+        offset += 3;
+        break;
       case "rgba":
         data.writeInt8(value.r, offset);
         data.writeInt8(value.g, offset + 1);
@@ -585,7 +605,7 @@ function pack(fields, object, data?, offset?, referenceData?):{ data: Buffer; le
         if (Array.isArray(vtype)) {
           result = pack(vtype, value.value, data, offset, referenceData);
         } else {
-          const variableSchema = [{name: "element", type: vtype}];
+          const variableSchema = [{ name: "element", type: vtype }];
           result = pack(
             variableSchema,
             { element: value.value },
@@ -609,5 +629,9 @@ function pack(fields, object, data?, offset?, referenceData?):{ data: Buffer; le
   };
 }
 
-const dataschema = {pack:pack,parse:parse,calculateDataLength:calculateDataLength}
+const dataschema = {
+  pack: pack,
+  parse: parse,
+  calculateDataLength: calculateDataLength,
+};
 export default dataschema;
