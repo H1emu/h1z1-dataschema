@@ -45,14 +45,14 @@ function parse(fields:any, data:any, offset:number, referenceData?:any):any {
           numElements = field.debuglength;
         }
         if (field.fields) {
-          for (j = 0; j < numElements; j++) {
+          for (let j = 0; j < numElements; j++) {
             element = parse(field.fields, data, offset, referenceData);
             offset += element.length;
             elements.push(element.result);
           }
         } else if (field.elementType) {
           elementSchema = [{ name: "element", type: field.elementType }];
-          for (j = 0; j < numElements; j++) {
+          for (let j = 0; j < numElements; j++) {
             element = parse(elementSchema, data, offset, referenceData);
             offset += element.length;
             elements.push(element.result.element);
@@ -145,7 +145,7 @@ function parse(fields:any, data:any, offset:number, referenceData?:any):any {
       case "int64":
       case "uint64":
         var str = "0x";
-        for (var j = 7; j >= 0; j--) {
+        for (let j = 7; j >= 0; j--) {
           str += ("0" + data.readUInt8(offset + j).toString(16)).substr(-2);
         }
         result[field.name] = str;
@@ -177,7 +177,7 @@ function parse(fields:any, data:any, offset:number, referenceData?:any):any {
       case "bitflags":
         value = data.readUInt8(offset);
         flags = {};
-        for (j = 0; j < field.flags.length; j++) {
+        for (let j = 0; j < field.flags.length; j++) {
           flag = field.flags[j];
           flags[flag.name] = !!(value & (1 << flag.bit));
         }
@@ -281,7 +281,7 @@ function calculateDataLength(fields:any[], object:any, referenceData?:any):numbe
         elements = object[field.name];
         if (field.fields) {
           if (elements?.length) {
-            for (j = 0; j < elements.length; j++) {
+            for (let j = 0; j < elements.length; j++) {
               length += calculateDataLength(
                 field.fields,
                 elements[j],
@@ -291,7 +291,7 @@ function calculateDataLength(fields:any[], object:any, referenceData?:any):numbe
           }
         } else if (field.elementType) {
           let elementSchema = [{ name: "element", type: field.elementType }];
-          for (j = 0; j < elements.length; j++) {
+          for (let j = 0; j < elements.length; j++) {
             length += calculateDataLength(
               elementSchema,
               { element: elements[j] },
@@ -429,13 +429,13 @@ function pack(fields, object, data?, offset?, referenceData?):{ data: Buffer; le
           );
         }
         if (field.fields) {
-          for (j = 0; j < value.length; j++) {
+          for (let j = 0; j < value.length; j++) {
             result = pack(field.fields, value[j], data, offset, referenceData);
             offset += result.length;
           }
         } else if (field.elementType) {
           elementSchema = [{ name: "element", type: field.elementType }];
-          for (j = 0; j < value.length; j++) {
+          for (let j = 0; j < value.length; j++) {
             result = pack(
               elementSchema,
               { element: value[j] },
@@ -528,7 +528,7 @@ function pack(fields, object, data?, offset?, referenceData?):{ data: Buffer; le
         break;
       case "bitflags":
         flagValue = 0;
-        for (j = 0; j < field.flags.length; j++) {
+        for (let j = 0; j < field.flags.length; j++) {
           flag = field.flags[j];
           if (value[flag.name]) {
             flagValue = flagValue | (1 << flag.bit);
