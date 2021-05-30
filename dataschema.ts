@@ -144,7 +144,7 @@ function parse(fields:any, data:any, offset:number, referenceData?:any):any {
         break;
       case "int64":
       case "uint64":
-        var str = "0x";
+        let str = "0x";
         for (let j = 7; j >= 0; j--) {
           str += ("0" + data.readUInt8(offset + j).toString(16)).substr(-2);
         }
@@ -152,12 +152,12 @@ function parse(fields:any, data:any, offset:number, referenceData?:any):any {
         offset += 8;
         break;
       case "variabletype8":
-        var vtypeidx = data.readUInt8(offset),
-          vtype = field.types[vtypeidx]
+        const vtypeidx = data.readUInt8(offset),
+            vtype = field.types[vtypeidx];
         offset += 1;
         if (vtype) {
           if (Array.isArray(vtype)) {
-            var variable = parse(vtype, data, offset, referenceData);
+            const variable = parse(vtype, data, offset, referenceData);
             offset += variable.length;
             result[field.name] = {
               type: vtypeidx,
@@ -236,7 +236,7 @@ function parse(fields:any, data:any, offset:number, referenceData?:any):any {
         offset += 1 + string.length;
         break;
       case "custom":
-        var tmp = field.parser(data, offset, referenceData);
+        const tmp = field.parser(data, offset, referenceData);
         result[field.name] = tmp.value;
         offset += tmp.length;
         break;
@@ -251,7 +251,6 @@ function parse(fields:any, data:any, offset:number, referenceData?:any):any {
 function calculateDataLength(fields:any[], object:any, referenceData?:any):number {
   let length = 0,
   value,
-    j,
     elements;
   fields = fields || [];
   fields.forEach((field) => {
@@ -356,11 +355,11 @@ function calculateDataLength(fields:any[], object:any, referenceData?:any):numbe
         break;
       case "variabletype8":
         length += 1;
-        var vtype = field.types[value.type];
+        const vtype = field.types[value.type];
         if (Array.isArray(vtype)) {
           length += calculateDataLength(vtype, value.value, referenceData);
         } else {
-          var variableSchema = [{ name: "element", type: vtype }];
+          const variableSchema = [{name: "element", type: vtype}];
           length += calculateDataLength(
             variableSchema,
             { element: value.value },
@@ -369,7 +368,7 @@ function calculateDataLength(fields:any[], object:any, referenceData?:any):numbe
         }
         break;
       case "custom":
-        var tmp = field.packer(value, referenceData);
+        const tmp = field.packer(value, referenceData);
         length += tmp.length;
         break;
     }
@@ -378,7 +377,7 @@ function calculateDataLength(fields:any[], object:any, referenceData?:any):numbe
 }
 
 function pack(fields, object, data?, offset?, referenceData?):{ data: Buffer; length: number; } {
-  var dataLength, value, result, startOffset, elementSchema, flag, flagValue;
+  let dataLength, value, result, startOffset, elementSchema, flag, flagValue;
 
   if (!fields) {
     return {
@@ -474,7 +473,7 @@ function pack(fields, object, data?, offset?, referenceData?):{ data: Buffer; le
         }
         break;
       case "uint64":
-        for (var j = 0; j < 8; j++) {
+        for (let j = 0; j < 8; j++) {
           data.writeUInt8(
             parseInt(value.substr(2 + (7 - j) * 2, 2), 16),
             offset + j
@@ -582,11 +581,11 @@ function pack(fields, object, data?, offset?, referenceData?):{ data: Buffer; le
       case "variabletype8":
         data.writeUInt8(value.type, offset);
         offset++;
-        var vtype = field.types[value.type];
+        const vtype = field.types[value.type];
         if (Array.isArray(vtype)) {
           result = pack(vtype, value.value, data, offset, referenceData);
         } else {
-          var variableSchema = [{ name: "element", type: vtype }];
+          const variableSchema = [{name: "element", type: vtype}];
           result = pack(
             variableSchema,
             { element: value.value },
@@ -598,7 +597,7 @@ function pack(fields, object, data?, offset?, referenceData?):{ data: Buffer; le
         offset += result.length;
         break;
       case "custom":
-        var customData = field.packer(value, referenceData);
+        const customData = field.packer(value, referenceData);
         customData.copy(data, offset);
         offset += customData.length;
         break;
