@@ -28,9 +28,8 @@ function parse(
       );
     }
     if (field.require) {
-      if(!field[field.require]){
-        break
-      }
+      console.warn("require feature didn't work for the parse function, output after the field using it will be wrong !")
+      break;
     }
     switch (field.type) {
       case "schema":
@@ -276,8 +275,18 @@ function calculateDataLength(
   for (let index = 0; index < fields.length; index++) {
     const field = fields[index];
     if (field.require) {
-      if(!field[field.require]){
-        break
+      if (field.require) {
+        let skipField = false;
+        for (let index = 0; index < fields.length; index++) {
+          const fieldToCheck = fields[index];
+          if(fieldToCheck.name === field.require && !fieldToCheck.defaultValue && !object[field.name]){
+            skipField = true;
+            break;
+          }
+        }
+        if(skipField){
+          break;
+        }
       }
     }
     if (!(field.name in object)) {
@@ -428,8 +437,16 @@ function pack(
   for (let index = 0; index < fields.length; index++) {
     const field = fields[index];
     if (field.require) {
-      if(!field[field.require]){
-        break
+      let skipField = false;
+      for (let index = 0; index < fields.length; index++) {
+        const fieldToCheck = fields[index];
+        if(fieldToCheck.name === field.require && !fieldToCheck.defaultValue && !object[field.name]){
+          skipField = true;
+          break;
+        }
+      }
+      if(skipField){
+        break;
       }
     }
     if (!(field.name in object)) {
