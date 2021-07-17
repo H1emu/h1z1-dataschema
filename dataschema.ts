@@ -20,7 +20,8 @@ function parse(
     flag;
 
   fields = fields || [];
-  fields.forEach((field:any) => {
+  for (let index = 0; index < fields.length; index++) {
+    const field = fields[index];
     if (field.name in result) {
       console.warn(
         "DataSchema::parse(): Duplicate field name in schema: " + field.name
@@ -251,7 +252,7 @@ function parse(
         offset += tmp.length;
         break;
     }
-  });
+  };
   return {
     result: result,
     length: offset - startOffset,
@@ -267,7 +268,8 @@ function calculateDataLength(
     value:any,
     elements;
   fields = fields || [];
-  fields.forEach((field) => {
+  for (let index = 0; index < fields.length; index++) {
+    const field = fields[index];
     if (!(field.name in object)) {
       if ("defaultValue" in field) {
         value = field.defaultValue;
@@ -386,7 +388,7 @@ function calculateDataLength(
         length += tmp.length;
         break;
     }
-  });
+  };
   return length;
 }
 
@@ -413,7 +415,8 @@ function pack(
   offset = offset || 0;
   const startOffset = offset
 
-  fields.forEach((field:any) => {
+  for (let index = 0; index < fields.length; index++) {
+    const field = fields[index];
     if (!(field.name in object)) {
       if ("defaultValue" in field) {
         value = field.defaultValue;
@@ -622,7 +625,7 @@ function pack(
         offset += customData.length;
         break;
     }
-  });
+  };
   return {
     data: data,
     length: offset - startOffset,
