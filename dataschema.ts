@@ -27,11 +27,6 @@ function parse(
         "DataSchema::parse(): Duplicate field name in schema: " + field.name
       );
     }
-    if (field.require) {
-      if(!field[field.require]){
-        break
-      }
-    }
     switch (field.type) {
       case "schema":
         element = parse(field.fields, data, offset, referenceData);
@@ -275,11 +270,6 @@ function calculateDataLength(
   fields = fields || [];
   for (let index = 0; index < fields.length; index++) {
     const field = fields[index];
-    if (field.require) {
-      if(!field[field.require]){
-        break
-      }
-    }
     if (!(field.name in object)) {
       if ("defaultValue" in field) {
         value = field.defaultValue;
@@ -427,11 +417,6 @@ function pack(
 
   for (let index = 0; index < fields.length; index++) {
     const field = fields[index];
-    if (field.require) {
-      if(!field[field.require]){
-        break
-      }
-    }
     if (!(field.name in object)) {
       if ("defaultValue" in field) {
         value = field.defaultValue;
