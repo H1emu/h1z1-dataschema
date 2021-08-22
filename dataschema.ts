@@ -149,6 +149,9 @@ function parse(
         break;
       case "int64":
       case "uint64":
+        data.readUInt64(value, offset);
+        offset += 8;
+      case "int64string":
         let str = "0x";
         for (let j = 7; j >= 0; j--) {
           str += ("0" + data.readUInt8(offset + j).toString(16)).substr(-2);
@@ -326,6 +329,7 @@ function calculateDataLength(
         break;
       case "int64":
       case "uint64":
+      case "int64string":
       case "double":
         length += 8;
         break;
@@ -493,6 +497,10 @@ function pack(
         }
         break;
       case "uint64":
+        data.writeUInt64(value, offset);
+        offset += 8;
+        break;
+      case "int64string":
         for (let j = 0; j < 8; j++) {
           data.writeUInt8(
             parseInt(value.substr(2 + (7 - j) * 2, 2), 16),

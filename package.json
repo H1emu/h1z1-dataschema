@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@types/node": "^15.6.1",
-    "h1z1-buffer": "^1.0.0",
+    "h1z1-buffer": "github:H1emu/h1z1-buffer#dev",
     "typescript": "^4.3.2"
   }
 }
