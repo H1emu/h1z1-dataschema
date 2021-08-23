@@ -149,7 +149,7 @@ function parse(
         break;
       case "int64":
       case "uint64":
-        data.readUInt64(value, offset);
+        data.readBigInt64LE(value, offset);
         offset += 8;
       case "int64string":
         let str = "0x";
@@ -497,7 +497,7 @@ function pack(
         }
         break;
       case "uint64":
-        data.writeUInt64(value, offset);
+        data.writeBigUInt64LE(value, offset);
         offset += 8;
         break;
       case "int64string":
