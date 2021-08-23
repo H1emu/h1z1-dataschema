@@ -15,7 +15,7 @@ function parse(
     bytes,
     string,
     length,
-    value,
+    value:any,
     flags:any,
     flag;
 
