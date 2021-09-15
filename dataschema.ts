@@ -267,6 +267,7 @@ function calculateDataLength(
 ): number {
   let value: any;
   fields = fields || [];
+  let length = 0;
   fields.forEach((field) => {
     if (!(field.name in object)) {
       if ("defaultValue" in field) {
@@ -282,7 +283,6 @@ function calculateDataLength(
     } else {
       value = object[field.name];
     }
-    let length = 0;
     switch (field.type) {
       case "schema":
         length += calculateDataLength(field.fields, value, referenceData);
