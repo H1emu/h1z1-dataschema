@@ -397,7 +397,7 @@ function calculateDataLength(
 function pack(
   fields: any[],
   object: any,
-  dataToPack?: Buffer,
+  dataToPack?: any,
   offset?: number,
   referenceData?: any
 ): { data: Buffer; length: number } {
