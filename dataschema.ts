@@ -12,10 +12,11 @@ interface h1z1Buffer extends Buffer{
 
 function parse(
   fields: any[],
-  data: h1z1Buffer,
+  dataToParse: Buffer,
   offset: number,
   referenceData?: any
 ): any {
+  const data = dataToParse as h1z1Buffer;
   const startOffset = offset;
   const result: any = {};
   fields = fields || [];
@@ -396,10 +397,11 @@ function calculateDataLength(
 function pack(
   fields: any[],
   object: any,
-  data?: h1z1Buffer,
+  dataToPack?: Buffer,
   offset?: number,
   referenceData?: any
 ): { data: Buffer; length: number } {
+  let data = dataToPack as h1z1Buffer;
   if (!fields) {
     return {
       data: new (Buffer.alloc as any)(0),
