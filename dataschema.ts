@@ -1,40 +1,32 @@
 import "h1z1-buffer";
 
+interface h1z1Buffer extends Buffer{
+  readBytes(offset: number, length: any): any;
+  readPrefixedStringLE(offset: number);
+  readNullTerminatedString(offset: number);
+
+}
+
 function parse(
   fields: any,
-  data: any,
+  data: h1z1Buffer,
   offset: number,
   referenceData?: any
 ): any {
   const startOffset = offset;
   const result: any = {};
-  let numElements: number,
-    elements,
-    element,
-    elementSchema,
-    bytes,
-    string,
-    length,
-    value: any,
-    flags: any,
-    flag;
-
   fields = fields || [];
   fields.forEach((field: any) => {
-    if (field.name in result) {
-      console.warn(
-        "DataSchema::parse(): Duplicate field name in schema: " + field.name
-      );
-    }
     switch (field.type) {
       case "schema":
-        element = parse(field.fields, data, offset, referenceData);
+        const element = parse(field.fields, data, offset, referenceData);
         offset += element.length;
         result[field.name] = element.result;
         break;
       case "array":
       case "array8":
-        elements = [];
+        const elements = [];
+        let numElements = 0;
         if ("length" in field) {
           numElements = field.length;
         } else {
@@ -51,14 +43,14 @@ function parse(
         }
         if (field.fields) {
           for (let j = 0; j < numElements; j++) {
-            element = parse(field.fields, data, offset, referenceData);
+            const element = parse(field.fields, data, offset, referenceData);
             offset += element.length;
             elements.push(element.result);
           }
         } else if (field.elementType) {
-          elementSchema = [{ name: "element", type: field.elementType }];
+          const elementSchema = [{ name: "element", type: field.elementType }];
           for (let j = 0; j < numElements; j++) {
-            element = parse(elementSchema, data, offset, referenceData);
+            const element = parse(elementSchema, data, offset, referenceData);
             offset += element.length;
             elements.push(element.result.element);
           }
@@ -72,7 +64,7 @@ function parse(
         result[field.name] = data.readBytes(offset, field.length);
         break;
       case "bytes":
-        bytes = data.readBytes(offset, field.length);
+        const bytes = data.readBytes(offset, field.length);
         if (bytes.length > 20) {
           bytes.toJSON = function () {
             return "[" + this.length + " " + "bytes]";
@@ -86,12 +78,12 @@ function parse(
         offset += 4;
         if (length > 0) {
           if (field.fields) {
-            element = parse(field.fields, data, offset, referenceData);
+            const element = parse(field.fields, data, offset, referenceData);
             if (element) {
               result[field.name] = element.result;
             }
           } else {
-            bytes = data.readBytes(offset, length);
+            const bytes = data.readBytes(offset, length);
             result[field.name] = bytes;
           }
           offset += length;
@@ -148,9 +140,11 @@ function parse(
         offset += 4;
         break;
       case "int64":
-      case "uint64":
-        data.readBigInt64LE(value, offset);
+      case "uint64":{
+        let value:BigInt = data.readBigInt64LE(offset);
         offset += 8;
+        return value;
+      }
       case "uint64string":
       case "int64string":
         let str = "0x";
@@ -189,10 +183,10 @@ function parse(
         }
         break;
       case "bitflags":
-        value = data.readUInt8(offset);
-        flags = {};
+        const value = data.readUInt8(offset);
+        const flags = {};
         for (let j = 0; j < field.flags.length; j++) {
-          flag = field.flags[j];
+          const flag = field.flags[j];
           flags[flag.name] = !!(value & (1 << flag.bit));
         }
         result[field.name] = flags;
@@ -234,21 +228,22 @@ function parse(
         result[field.name] = !!data.readUInt8(offset);
         offset += 1;
         break;
-      case "string":
-        string = data.readPrefixedStringLE(offset);
+      case "string":{
+        const string = data.readPrefixedStringLE(offset);
         result[field.name] = string;
         offset += 4 + string.length;
         break;
-      case "fixedlengthstring":
-        string = data.toString("utf8", offset, offset + field.length);
+      }
+      case "fixedlengthstring":{
+        const string = data.toString("utf8", offset, offset + field.length);
         result[field.name] = string;
         offset += string.length;
-        break;
-      case "nullstring":
-        string = data.readNullTerminatedString(offset);
+        break;}
+      case "nullstring":{
+        const string = data.readNullTerminatedString(offset);
         result[field.name] = string;
         offset += 1 + string.length;
-        break;
+        break;}
       case "custom":
         const tmp = field.parser(data, offset, referenceData);
         result[field.name] = tmp.value;
