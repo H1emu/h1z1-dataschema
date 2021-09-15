@@ -1,6 +1,9 @@
 import "h1z1-buffer";
 
 interface h1z1Buffer extends Buffer{
+  writeBytes(value: any, offset: number, length?: any);
+  writePrefixedStringLE(value: any, offset: number);
+  writeNullTerminatedString(value: any, offset: number);
   readBytes(offset: number, length: any): any;
   readPrefixedStringLE(offset: number);
   readNullTerminatedString(offset: number);
@@ -390,14 +393,12 @@ function calculateDataLength(
 }
 
 function pack(
-  fields: any,
+  fields: any[],
   object: any,
-  data?: any,
-  offset?: any,
+  data?: h1z1Buffer,
+  offset?: number,
   referenceData?: any
 ): { data: Buffer; length: number } {
-  let dataLength, value: any, result, elementSchema, flag, flagValue;
-
   if (!fields) {
     return {
       data: new (Buffer.alloc as any)(0),
@@ -406,12 +407,12 @@ function pack(
   }
 
   if (!data) {
-    dataLength = calculateDataLength(fields, object, referenceData);
+    const dataLength = calculateDataLength(fields, object, referenceData);
     data = new (Buffer.alloc as any)(dataLength);
   }
   offset = offset || 0;
   const startOffset = offset;
-
+  let value;
   fields.forEach((field: any) => {
     if (!(field.name in object)) {
       if ("defaultValue" in field) {
@@ -426,6 +427,7 @@ function pack(
     } else {
       value = object[field.name];
     }
+    let result;
     switch (field.type) {
       case "schema":
         offset += pack(field.fields, value, data, offset, referenceData).length;
@@ -452,7 +454,7 @@ function pack(
             offset += result.length;
           }
         } else if (field.elementType) {
-          elementSchema = [{ name: "element", type: field.elementType }];
+          const elementSchema = [{ name: "element", type: field.elementType }];
           for (let j = 0; j < value.length; j++) {
             result = pack(
               elementSchema,
@@ -550,9 +552,9 @@ function pack(
         offset += 4;
         break;
       case "bitflags":
-        flagValue = 0;
+        let flagValue = 0;
         for (let j = 0; j < field.flags.length; j++) {
-          flag = field.flags[j];
+          const flag = field.flags[j];
           if (value[flag.name]) {
             flagValue = flagValue | (1 << flag.bit);
           }
