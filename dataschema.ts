@@ -1,13 +1,12 @@
 import "h1z1-buffer";
 
-interface h1z1Buffer extends Buffer{
-  writeBytes(value: any, offset: number, length?: any);
-  writePrefixedStringLE(value: any, offset: number);
-  writeNullTerminatedString(value: any, offset: number);
+interface h1z1Buffer extends Buffer {
+  writeBytes(value: any, offset: number, length?: any): any;
+  writePrefixedStringLE(value: any, offset: number): any;
+  writeNullTerminatedString(value: any, offset: number): any;
   readBytes(offset: number, length: any): any;
-  readPrefixedStringLE(offset: number);
-  readNullTerminatedString(offset: number);
-
+  readPrefixedStringLE(offset: number): any;
+  readNullTerminatedString(offset: number): any;
 }
 
 function parse(
@@ -144,8 +143,8 @@ function parse(
         offset += 4;
         break;
       case "int64":
-      case "uint64":{
-        let value:BigInt = data.readBigInt64LE(offset);
+      case "uint64": {
+        let value: BigInt = data.readBigInt64LE(offset);
         offset += 8;
         return value;
       }
@@ -188,7 +187,7 @@ function parse(
         break;
       case "bitflags":
         const value = data.readUInt8(offset);
-        const flags = {};
+        const flags: any = {};
         for (let j = 0; j < field.flags.length; j++) {
           const flag = field.flags[j];
           flags[flag.name] = !!(value & (1 << flag.bit));
@@ -232,22 +231,24 @@ function parse(
         result[field.name] = !!data.readUInt8(offset);
         offset += 1;
         break;
-      case "string":{
+      case "string": {
         const string = data.readPrefixedStringLE(offset);
         result[field.name] = string;
         offset += 4 + string.length;
         break;
       }
-      case "fixedlengthstring":{
+      case "fixedlengthstring": {
         const string = data.toString("utf8", offset, offset + field.length);
         result[field.name] = string;
         offset += string.length;
-        break;}
-      case "nullstring":{
+        break;
+      }
+      case "nullstring": {
         const string = data.readNullTerminatedString(offset);
         result[field.name] = string;
         offset += 1 + string.length;
-        break;}
+        break;
+      }
       case "custom":
         const tmp = field.parser(data, offset, referenceData);
         result[field.name] = tmp.value;
@@ -415,7 +416,7 @@ function pack(
   }
   offset = offset || 0;
   const startOffset = offset;
-  let value;
+  let value: any;
   fields.forEach((field: any) => {
     if (!(field.name in object)) {
       if ("defaultValue" in field) {
