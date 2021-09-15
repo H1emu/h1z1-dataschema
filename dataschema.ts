@@ -77,7 +77,7 @@ function parse(
         offset += field.length;
         break;
       case "byteswithlength":
-        length = data.readUInt32LE(offset);
+        const length = data.readUInt32LE(offset);
         offset += 4;
         if (length > 0) {
           if (field.fields) {
