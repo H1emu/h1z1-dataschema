@@ -282,6 +282,7 @@ function calculateDataLength(
     } else {
       value = object[field.name];
     }
+    let length = 0;
     switch (field.type) {
       case "schema":
         length += calculateDataLength(field.fields, value, referenceData);
