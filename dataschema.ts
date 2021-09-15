@@ -8,7 +8,7 @@ interface h1z1Buffer extends Buffer{
 }
 
 function parse(
-  fields: any,
+  fields: any[],
   data: h1z1Buffer,
   offset: number,
   referenceData?: any
@@ -262,9 +262,7 @@ function calculateDataLength(
   object: any,
   referenceData?: any
 ): number {
-  let length = 0,
-    value: any,
-    elements;
+  let value: any;
   fields = fields || [];
   fields.forEach((field) => {
     if (!(field.name in object)) {
@@ -290,7 +288,7 @@ function calculateDataLength(
         if (!field.fixedLength) {
           length += field.type == "array" ? 4 : 1;
         }
-        elements = object[field.name];
+        const elements = object[field.name];
         if (field.fields) {
           if (elements?.length) {
             for (let j = 0; j < elements.length; j++) {
