@@ -144,7 +144,7 @@ function parse(
         break;
       case "int64":
       case "uint64": {
-        let value: BigInt = data.readBigInt64LE(offset);
+        const value: BigInt = data.readBigInt64LE(offset);
         offset += 8;
         return value;
       }
