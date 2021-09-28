@@ -1,0 +1,3186 @@
+{
+    "locations": [
+        {
+            "guid": "0xb1ad86899b6ceeb6",
+            "respawnType": 4,
+            "position": [
+                0,
+                50,
+                0,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x2cfc291e53ee06ba",
+            "respawnType": 4,
+            "position": [
+                -1514.17,
+                406.87,
+                -842.29,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x526aca0c0d6f7a88",
+            "respawnType": 4,
+            "position": [
+                -234.79,
+                32.76,
+                -1139.05,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x80c8682e08c3f036",
+            "respawnType": 4,
+            "position": [
+                -126.78,
+                23.41,
+                -1132.23,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xb6fc5c886f346e4a",
+            "respawnType": 4,
+            "position": [
+                1973.09,
+                46.2,
+                677.99,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x80c8d826b7c0a416",
+            "respawnType": 4,
+            "position": [
+                -395.18,
+                51.03,
+                -876.75,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xa47e57834f24a14b",
+            "respawnType": 4,
+            "position": [
+                -1521.28,
+                357,
+                -834.23,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x93f127beb6d25604",
+            "respawnType": 4,
+            "position": [
+                2137.77,
+                73.39,
+                -1170.22,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x1b1c3e27ec0f8c22",
+            "respawnType": 4,
+            "position": [
+                2272.78,
+                42.04,
+                2206.17,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x08288bc0b3ed11b5",
+            "respawnType": 4,
+            "position": [
+                -404.69,
+                71.38,
+                2497.94,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x7ae4b1500150a4bb",
+            "respawnType": 4,
+            "position": [
+                -69.46,
+                28.42,
+                -875.68,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xf74572006d05bbcf",
+            "respawnType": 4,
+            "position": [
+                602.91,
+                71.62,
+                -1301.5,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xe39892cb125adca2",
+            "respawnType": 4,
+            "position": [
+                -762.56,
+                75.28,
+                410.13,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x8408e6f062995c0b",
+            "respawnType": 4,
+            "position": [
+                -410.47,
+                37.28,
+                952.96,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x2c5740a34f7454dd",
+            "respawnType": 4,
+            "position": [
+                11.97,
+                49.28,
+                600.99,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x2fe222faf919b2cc",
+            "respawnType": 4,
+            "position": [
+                -660.09,
+                70.91,
+                2719.92,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xacbb88f1d2f4b41c",
+            "respawnType": 4,
+            "position": [
+                1203.72,
+                71.7,
+                2744.48,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xebd71f2eb54344f1",
+            "respawnType": 4,
+            "position": [
+                -1521.28,
+                357,
+                -834.23,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x0e2cfa8b503167c9",
+            "respawnType": 4,
+            "position": [
+                -1622.92,
+                119.06,
+                3222.85,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x435c52ad5675bc54",
+            "respawnType": 4,
+            "position": [
+                -1961.87,
+                59.56,
+                2566.15,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x1f2ceb5ad713e31d",
+            "respawnType": 4,
+            "position": [
+                -2598.34,
+                49.54,
+                2489.91,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xd2fdb8ab3b0a8d4a",
+            "respawnType": 4,
+            "position": [
+                -2876.95,
+                45.43,
+                2918.53,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xd7c1d59e2747491c",
+            "respawnType": 4,
+            "position": [
+                -2844.18,
+                42.29,
+                1710.47,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x1f5ad4da483f660a",
+            "respawnType": 4,
+            "position": [
+                -2227.28,
+                64.96,
+                1315.27,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x2fc0ab4b3bdebe0b",
+            "respawnType": 4,
+            "position": [
+                -1902.14,
+                73.9,
+                1050.28,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x76fcfdd3a9e44abe",
+            "respawnType": 4,
+            "position": [
+                -1417.86,
+                68.77,
+                1421.89,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xb777326c3d9e17f4",
+            "respawnType": 4,
+            "position": [
+                -1391.02,
+                71.25,
+                1874.06,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xb8a95c58fda98aa8",
+            "respawnType": 4,
+            "position": [
+                -1112.14,
+                71.25,
+                1887.82,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xa45599c491a7c59e",
+            "respawnType": 4,
+            "position": [
+                -1404.65,
+                71.16,
+                2116.78,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xd7173d0aafb8e726",
+            "respawnType": 4,
+            "position": [
+                1776.4,
+                45.73,
+                2018.61,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x5e3588f00bb8cf5b",
+            "respawnType": 4,
+            "position": [
+                -2353.5,
+                78.19,
+                2248.13,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x90ac7af2053cdd75",
+            "respawnType": 4,
+            "position": [
+                -2642.21,
+                109,
+                1052.35,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x72cb3a47988f6465",
+            "respawnType": 4,
+            "position": [
+                -2945.48,
+                46.01,
+                108.11,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x9b5a21dd807eda1f",
+            "respawnType": 4,
+            "position": [
+                -2484.67,
+                59.07,
+                -963.08,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xa1cf7f84798fb815",
+            "respawnType": 4,
+            "position": [
+                -3235.35,
+                64.77,
+                -1516.31,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xd48cd923d56337ac",
+            "respawnType": 4,
+            "position": [
+                -2924.97,
+                59.08,
+                -1599.3,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x988f6bb07d56b9ed",
+            "respawnType": 4,
+            "position": [
+                -2815.66,
+                61.67,
+                -2165.65,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x2dea2691b01cb612",
+            "respawnType": 4,
+            "position": [
+                -2938.5,
+                6.32,
+                -3086.55,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x93c4928ed58e5958",
+            "respawnType": 4,
+            "position": [
+                -2272.62,
+                49.13,
+                -3258.43,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x0c5440580df1110b",
+            "respawnType": 4,
+            "position": [
+                -1827.53,
+                61.72,
+                -2117.55,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x21854f850a2542ab",
+            "respawnType": 4,
+            "position": [
+                -910.05,
+                54.1,
+                -2372.14,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x3bfa78d173616ef3",
+            "respawnType": 4,
+            "position": [
+                -308.83,
+                37.75,
+                -1950.47,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x171f531d279713fc",
+            "respawnType": 4,
+            "position": [
+                170.69,
+                31.49,
+                -1337.69,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xd19f946fd2192f7a",
+            "respawnType": 4,
+            "position": [
+                554.6,
+                31.38,
+                -1182.06,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x2cdbdc44127dcdff",
+            "respawnType": 4,
+            "position": [
+                782.14,
+                38.8,
+                -2455.47,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xf75db6056ec83992",
+            "respawnType": 4,
+            "position": [
+                2473.02,
+                64.52,
+                -2571.82,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x51cee534e989370a",
+            "respawnType": 4,
+            "position": [
+                2959.54,
+                68.93,
+                -2419.08,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x6d695f72138cbd3f",
+            "respawnType": 4,
+            "position": [
+                3231.28,
+                99.86,
+                -995.28,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x826a4d9b88837e76",
+            "respawnType": 4,
+            "position": [
+                1841.9,
+                64.82,
+                -428.54,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x8dfb2be3f01aab7d",
+            "respawnType": 4,
+            "position": [
+                2209.49,
+                78.28,
+                -303.08,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x1a9e1a7cccb4c521",
+            "respawnType": 4,
+            "position": [
+                2842.64,
+                74.48,
+                811.27,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x6852e45abcb4cab4",
+            "respawnType": 4,
+            "position": [
+                2138.95,
+                51.84,
+                1269.08,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xd3dd24aaeafbc282",
+            "respawnType": 4,
+            "position": [
+                1151.55,
+                43.56,
+                1888.18,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        }
+    ],
+    "locations2": [
+        {
+            "guid": "0xb1ad86899b6ceeb6",
+            "respawnType": 4,
+            "position": [
+                0,
+                50,
+                0,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x2cfc291e53ee06ba",
+            "respawnType": 4,
+            "position": [
+                -1514.17,
+                406.87,
+                -842.29,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x526aca0c0d6f7a88",
+            "respawnType": 4,
+            "position": [
+                -234.79,
+                32.76,
+                -1139.05,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x80c8682e08c3f036",
+            "respawnType": 4,
+            "position": [
+                -126.78,
+                23.41,
+                -1132.23,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xb6fc5c886f346e4a",
+            "respawnType": 4,
+            "position": [
+                1973.09,
+                46.2,
+                677.99,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x80c8d826b7c0a416",
+            "respawnType": 4,
+            "position": [
+                -395.18,
+                51.03,
+                -876.75,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xa47e57834f24a14b",
+            "respawnType": 4,
+            "position": [
+                -1521.28,
+                357,
+                -834.23,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x93f127beb6d25604",
+            "respawnType": 4,
+            "position": [
+                2137.77,
+                73.39,
+                -1170.22,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x1b1c3e27ec0f8c22",
+            "respawnType": 4,
+            "position": [
+                2272.78,
+                42.04,
+                2206.17,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x08288bc0b3ed11b5",
+            "respawnType": 4,
+            "position": [
+                -404.69,
+                71.38,
+                2497.94,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x7ae4b1500150a4bb",
+            "respawnType": 4,
+            "position": [
+                -69.46,
+                28.42,
+                -875.68,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xf74572006d05bbcf",
+            "respawnType": 4,
+            "position": [
+                602.91,
+                71.62,
+                -1301.5,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xe39892cb125adca2",
+            "respawnType": 4,
+            "position": [
+                -762.56,
+                75.28,
+                410.13,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x8408e6f062995c0b",
+            "respawnType": 4,
+            "position": [
+                -410.47,
+                37.28,
+                952.96,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x2c5740a34f7454dd",
+            "respawnType": 4,
+            "position": [
+                11.97,
+                49.28,
+                600.99,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x2fe222faf919b2cc",
+            "respawnType": 4,
+            "position": [
+                -660.09,
+                70.91,
+                2719.92,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xacbb88f1d2f4b41c",
+            "respawnType": 4,
+            "position": [
+                1203.72,
+                71.7,
+                2744.48,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xebd71f2eb54344f1",
+            "respawnType": 4,
+            "position": [
+                -1521.28,
+                357,
+                -834.23,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x0e2cfa8b503167c9",
+            "respawnType": 4,
+            "position": [
+                -1622.92,
+                119.06,
+                3222.85,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x435c52ad5675bc54",
+            "respawnType": 4,
+            "position": [
+                -1961.87,
+                59.56,
+                2566.15,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x1f2ceb5ad713e31d",
+            "respawnType": 4,
+            "position": [
+                -2598.34,
+                49.54,
+                2489.91,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xd2fdb8ab3b0a8d4a",
+            "respawnType": 4,
+            "position": [
+                -2876.95,
+                45.43,
+                2918.53,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xd7c1d59e2747491c",
+            "respawnType": 4,
+            "position": [
+                -2844.18,
+                42.29,
+                1710.47,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x1f5ad4da483f660a",
+            "respawnType": 4,
+            "position": [
+                -2227.28,
+                64.96,
+                1315.27,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x2fc0ab4b3bdebe0b",
+            "respawnType": 4,
+            "position": [
+                -1902.14,
+                73.9,
+                1050.28,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x76fcfdd3a9e44abe",
+            "respawnType": 4,
+            "position": [
+                -1417.86,
+                68.77,
+                1421.89,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xb777326c3d9e17f4",
+            "respawnType": 4,
+            "position": [
+                -1391.02,
+                71.25,
+                1874.06,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xb8a95c58fda98aa8",
+            "respawnType": 4,
+            "position": [
+                -1112.14,
+                71.25,
+                1887.82,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xa45599c491a7c59e",
+            "respawnType": 4,
+            "position": [
+                -1404.65,
+                71.16,
+                2116.78,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xd7173d0aafb8e726",
+            "respawnType": 4,
+            "position": [
+                1776.4,
+                45.73,
+                2018.61,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x5e3588f00bb8cf5b",
+            "respawnType": 4,
+            "position": [
+                -2353.5,
+                78.19,
+                2248.13,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x90ac7af2053cdd75",
+            "respawnType": 4,
+            "position": [
+                -2642.21,
+                109,
+                1052.35,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x72cb3a47988f6465",
+            "respawnType": 4,
+            "position": [
+                -2945.48,
+                46.01,
+                108.11,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x9b5a21dd807eda1f",
+            "respawnType": 4,
+            "position": [
+                -2484.67,
+                59.07,
+                -963.08,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xa1cf7f84798fb815",
+            "respawnType": 4,
+            "position": [
+                -3235.35,
+                64.77,
+                -1516.31,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xd48cd923d56337ac",
+            "respawnType": 4,
+            "position": [
+                -2924.97,
+                59.08,
+                -1599.3,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x988f6bb07d56b9ed",
+            "respawnType": 4,
+            "position": [
+                -2815.66,
+                61.67,
+                -2165.65,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x2dea2691b01cb612",
+            "respawnType": 4,
+            "position": [
+                -2938.5,
+                6.32,
+                -3086.55,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x93c4928ed58e5958",
+            "respawnType": 4,
+            "position": [
+                -2272.62,
+                49.13,
+                -3258.43,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x0c5440580df1110b",
+            "respawnType": 4,
+            "position": [
+                -1827.53,
+                61.72,
+                -2117.55,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x21854f850a2542ab",
+            "respawnType": 4,
+            "position": [
+                -910.05,
+                54.1,
+                -2372.14,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x3bfa78d173616ef3",
+            "respawnType": 4,
+            "position": [
+                -308.83,
+                37.75,
+                -1950.47,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x171f531d279713fc",
+            "respawnType": 4,
+            "position": [
+                170.69,
+                31.49,
+                -1337.69,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xd19f946fd2192f7a",
+            "respawnType": 4,
+            "position": [
+                554.6,
+                31.38,
+                -1182.06,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x2cdbdc44127dcdff",
+            "respawnType": 4,
+            "position": [
+                782.14,
+                38.8,
+                -2455.47,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xf75db6056ec83992",
+            "respawnType": 4,
+            "position": [
+                2473.02,
+                64.52,
+                -2571.82,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x51cee534e989370a",
+            "respawnType": 4,
+            "position": [
+                2959.54,
+                68.93,
+                -2419.08,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x6d695f72138cbd3f",
+            "respawnType": 4,
+            "position": [
+                3231.28,
+                99.86,
+                -995.28,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x826a4d9b88837e76",
+            "respawnType": 4,
+            "position": [
+                1841.9,
+                64.82,
+                -428.54,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x8dfb2be3f01aab7d",
+            "respawnType": 4,
+            "position": [
+                2209.49,
+                78.28,
+                -303.08,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x1a9e1a7cccb4c521",
+            "respawnType": 4,
+            "position": [
+                2842.64,
+                74.48,
+                811.27,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0x6852e45abcb4cab4",
+            "respawnType": 4,
+            "position": [
+                2138.95,
+                51.84,
+                1269.08,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        },
+        {
+            "guid": "0xd3dd24aaeafbc282",
+            "respawnType": 4,
+            "position": [
+                1151.55,
+                43.56,
+                1888.18,
+                1
+            ],
+            "unknownDword1": 1,
+            "unknownDword2": 1,
+            "iconId1": 1,
+            "iconId2": 1,
+            "respawnTotalTime": 10,
+            "respawnTimeMs": 10000,
+            "nameId": 1,
+            "distance": 1000,
+            "unknownByte1": 1,
+            "unknownByte2": 1,
+            "unknownData1": {
+                "unknownByte1": 1,
+                "unknownByte2": 1,
+                "unknownByte3": 1,
+                "unknownByte4": 1,
+                "unknownByte5": 1
+            },
+            "unknownDword4": 1,
+            "unknownByte3": 1,
+            "unknownByte4": 1
+        }
+    ]
+}

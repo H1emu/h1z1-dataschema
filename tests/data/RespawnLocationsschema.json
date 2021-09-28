@@ -1,0 +1,228 @@
+[
+    {
+        "name": "locations",
+        "type": "array",
+        "defaultValue": [],
+        "fields": [
+            {
+                "name": "guid",
+                "type": "uint64string",
+                "defaultValue": "0"
+            },
+            {
+                "name": "respawnType",
+                "type": "uint8",
+                "defaultValue": 0
+            },
+            {
+                "name": "position",
+                "type": "floatvector4",
+                "defaultValue": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "name": "unknownDword1",
+                "type": "uint32",
+                "defaultValue": 0
+            },
+            {
+                "name": "unknownDword2",
+                "type": "uint32",
+                "defaultValue": 0
+            },
+            {
+                "name": "iconId1",
+                "type": "uint32",
+                "defaultValue": 0
+            },
+            {
+                "name": "iconId2",
+                "type": "uint32",
+                "defaultValue": 0
+            },
+            {
+                "name": "respawnTotalTime",
+                "type": "uint32",
+                "defaultValue": 0
+            },
+            {
+                "name": "respawnTimeMs",
+                "type": "uint32",
+                "defaultValue": 0
+            },
+            {
+                "name": "unknownByte1",
+                "type": "uint8",
+                "defaultValue": 0
+            },
+            {
+                "name": "unknownByte2",
+                "type": "uint8",
+                "defaultValue": 0
+            },
+            {
+                "name": "unknownData1",
+                "type": "schema",
+                "fields": [
+                    {
+                        "name": "unknownByte1",
+                        "type": "uint8",
+                        "defaultValue": 0
+                    },
+                    {
+                        "name": "unknownByte2",
+                        "type": "uint8",
+                        "defaultValue": 0
+                    },
+                    {
+                        "name": "unknownByte3",
+                        "type": "uint8",
+                        "defaultValue": 0
+                    },
+                    {
+                        "name": "unknownByte4",
+                        "type": "uint8",
+                        "defaultValue": 0
+                    },
+                    {
+                        "name": "unknownByte5",
+                        "type": "uint8",
+                        "defaultValue": 0
+                    }
+                ]
+            },
+            {
+                "name": "unknownDword4",
+                "type": "uint32",
+                "defaultValue": 0
+            },
+            {
+                "name": "unknownByte3",
+                "type": "uint8",
+                "defaultValue": 0
+            },
+            {
+                "name": "unknownByte4",
+                "type": "uint8",
+                "defaultValue": 0
+            }
+        ]
+    },
+    {
+        "name": "locations2",
+        "type": "array",
+        "defaultValue": [],
+        "fields": [
+            {
+                "name": "guid",
+                "type": "uint64string",
+                "defaultValue": "0"
+            },
+            {
+                "name": "respawnType",
+                "type": "uint8",
+                "defaultValue": 0
+            },
+            {
+                "name": "position",
+                "type": "floatvector4",
+                "defaultValue": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "name": "unknownDword1",
+                "type": "uint32",
+                "defaultValue": 0
+            },
+            {
+                "name": "unknownDword2",
+                "type": "uint32",
+                "defaultValue": 0
+            },
+            {
+                "name": "iconId1",
+                "type": "uint32",
+                "defaultValue": 0
+            },
+            {
+                "name": "iconId2",
+                "type": "uint32",
+                "defaultValue": 0
+            },
+            {
+                "name": "respawnTotalTime",
+                "type": "uint32",
+                "defaultValue": 0
+            },
+            {
+                "name": "respawnTimeMs",
+                "type": "uint32",
+                "defaultValue": 0
+            },
+            {
+                "name": "unknownByte1",
+                "type": "uint8",
+                "defaultValue": 0
+            },
+            {
+                "name": "unknownByte2",
+                "type": "uint8",
+                "defaultValue": 0
+            },
+            {
+                "name": "unknownData1",
+                "type": "schema",
+                "fields": [
+                    {
+                        "name": "unknownByte1",
+                        "type": "uint8",
+                        "defaultValue": 0
+                    },
+                    {
+                        "name": "unknownByte2",
+                        "type": "uint8",
+                        "defaultValue": 0
+                    },
+                    {
+                        "name": "unknownByte3",
+                        "type": "uint8",
+                        "defaultValue": 0
+                    },
+                    {
+                        "name": "unknownByte4",
+                        "type": "uint8",
+                        "defaultValue": 0
+                    },
+                    {
+                        "name": "unknownByte5",
+                        "type": "uint8",
+                        "defaultValue": 0
+                    }
+                ]
+            },
+            {
+                "name": "unknownDword4",
+                "type": "uint32",
+                "defaultValue": 0
+            },
+            {
+                "name": "unknownByte3",
+                "type": "uint8",
+                "defaultValue": 0
+            },
+            {
+                "name": "unknownByte4",
+                "type": "uint8",
+                "defaultValue": 0
+            }
+        ]
+    }
+]
