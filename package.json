@@ -9,7 +9,8 @@
   },
   "scripts": {
     "install": "npm run build",
-    "build": "tsc --declaration dataschema.ts"
+    "build": "tsc --declaration dataschema.ts",
+    "test": "npx ts-node ./tests/main.test.ts"
   },
   "dependencies": {
     "@types/node": "^15.6.1",
