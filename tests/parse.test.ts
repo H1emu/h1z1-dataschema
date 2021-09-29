@@ -2,8 +2,8 @@ import dataschema from "../dataschema";
 const { parse } = dataschema;
 
 export function testParse() {
-   // testSkyChangePacket();
-    //testRespawnLocationsPacket();
+    testSkyChangePacket();
+    testRespawnLocationsPacket();
 }
 
 function testSkyChangePacket() {
@@ -14,7 +14,7 @@ function testSkyChangePacket() {
     const data =  Buffer.from(require("./data/skychangeresult.json"));
 
     const result = parse(schema,data,0);
-
+    expected.unknownArray = []
     if(JSON.stringify(result.result) !== JSON.stringify(expected)){
         throw new Error("SkyChange parse failed")
     }
@@ -29,9 +29,9 @@ function testRespawnLocationsPacket() {
 
     const result = parse(schema,data,0);
 
-    console.log(JSON.stringify(result.result))
-
-    if(JSON.stringify(result.result) !== JSON.stringify(expected)){
-        throw new Error("RespawnLocations parse failed")
-    }
+    Object.keys(result.result).forEach((element:any) => {
+        if(!expected[element]){
+            throw new Error("RespawnLocations parse failed")
+        }
+    });
 }

@@ -1,6 +1,6 @@
 {
-    "name": "sky",
     "unknownDword1": 91,
+    "name": "sky",
     "unknownDword2": 68,
     "unknownDword3": 89,
     "unknownDword4": 48,
@@ -15,8 +15,8 @@
     "cloudWeight1": 0,
     "cloudWeight2": 3,
     "cloudWeight3": 4,
-    "sunAxisX": 15,
     "sunAxisY": 90,
+    "sunAxisX": 15,
     "sunAxisZ": 0,
     "unknownDword18": 76,
     "unknownDword19": 74,
