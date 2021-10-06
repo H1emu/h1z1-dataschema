@@ -1,4 +1,4 @@
-import dataschema from "../dataschema";
+import dataschema from "../src/dataschema";
 const { pack } = dataschema;
 
 export function testPack() {

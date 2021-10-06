@@ -1,4 +1,4 @@
-import dataschema from "../dataschema";
+import dataschema from "../src/dataschema";
 const { parse } = dataschema;
 
 export function testParse() {
