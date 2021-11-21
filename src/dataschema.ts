@@ -19,7 +19,8 @@ function parse(
   const startOffset = offset;
   const result: any = {};
   fields = fields || [];
-  fields.forEach((field: any) => {
+  for (let index = 0; index < fields.length; index++) {
+    const field:any = fields[index];
     switch (field.type) {
       case "schema":
         const element = parse(field.fields, data, offset, referenceData);
@@ -255,7 +256,7 @@ function parse(
         offset += tmp.length;
         break;
     }
-  });
+  };
   return {
     result: result,
     length: offset - startOffset,
@@ -270,7 +271,8 @@ function calculateDataLength(
   let value: any;
   fields = fields || [];
   let length = 0;
-  fields.forEach((field) => {
+  for (let index = 0; index < fields.length; index++) {
+    const field:any = fields[index];
     if (!(field.name in object)) {
       if ("defaultValue" in field) {
         value = field.defaultValue;
@@ -391,7 +393,7 @@ function calculateDataLength(
         length += tmp.length;
         break;
     }
-  });
+  };
   return length;
 }
 
@@ -417,7 +419,8 @@ function pack(
   offset = offset || 0;
   const startOffset = offset;
   let value: any;
-  fields.forEach((field: any) => {
+  for (let index = 0; index < fields.length; index++) {
+    const field:any = fields[index];
     if (!(field.name in object)) {
       if ("defaultValue" in field) {
         value = field.defaultValue;
@@ -632,7 +635,7 @@ function pack(
         offset += customData.length;
         break;
     }
-  });
+  };
   return {
     data: data,
     length: offset - startOffset,
