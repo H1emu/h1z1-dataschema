@@ -1,6 +1,6 @@
 import "h1z1-buffer";
 
-interface h1z1Buffer extends Buffer {
+export interface h1z1Buffer extends Buffer {
   writeBytes(value: any, offset: number, length?: any): any;
   writePrefixedStringLE(value: any, offset: number): any;
   writeNullTerminatedString(value: any, offset: number): any;
