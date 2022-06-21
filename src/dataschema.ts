@@ -16,8 +16,7 @@ export interface h1z1Buffer extends Buffer {
 function parse(
   fields: any,
   dataToParse: Buffer,
-  offset: number,
-  referenceData?: any
+  offset: number
 ): any {
   const data = dataToParse as h1z1Buffer;
   const startOffset = offset;
@@ -27,7 +26,7 @@ function parse(
     const field:any = fields[index];
     switch (field.type) {
       case "schema":
-        const element = parse(field.fields, data, offset, referenceData);
+        const element = parse(field.fields, data, offset);
         offset += element.length;
         result[field.name] = element.result;
         break;
@@ -51,14 +50,14 @@ function parse(
         }
         if (field.fields) {
           for (let j = 0; j < numElements; j++) {
-            const element = parse(field.fields, data, offset, referenceData);
+            const element = parse(field.fields, data, offset);
             offset += element.length;
             elements.push(element.result);
           }
         } else if (field.elementType) {
           const elementSchema = [{ name: "element", type: field.elementType }];
           for (let j = 0; j < numElements; j++) {
-            const element = parse(elementSchema, data, offset, referenceData);
+            const element = parse(elementSchema, data, offset);
             offset += element.length;
             elements.push(element.result.element);
           }
@@ -86,7 +85,7 @@ function parse(
         offset += 4;
         if (length > 0) {
           if (field.fields) {
-            const element = parse(field.fields, data, offset, referenceData);
+            const element = parse(field.fields, data, offset);
             if (element) {
               result[field.name] = element.result;
             }
@@ -168,7 +167,7 @@ function parse(
         offset += 1;
         if (vtype) {
           if (Array.isArray(vtype)) {
-            const variable = parse(vtype, data, offset, referenceData);
+            const variable = parse(vtype, data, offset);
             offset += variable.length;
             result[field.name] = {
               type: vtypeidx,
@@ -180,7 +179,7 @@ function parse(
               variableSchema,
               data,
               offset,
-              referenceData
+              
             );
             offset += variable.length;
             result[field.name] = {
@@ -255,7 +254,7 @@ function parse(
         break;
       }
       case "custom":
-        const tmp = field.parser(data, offset, referenceData);
+        const tmp = field.parser(data, offset);
         result[field.name] = tmp.value;
         offset += tmp.length;
         break;
@@ -269,8 +268,7 @@ function parse(
 
 function calculateDataLength(
   fields: any[],
-  object: any,
-  referenceData?: any
+  object: any
 ): number {
   let value: any;
   fields = fields || [];
@@ -293,7 +291,7 @@ function calculateDataLength(
     }
     switch (field.type) {
       case "schema":
-        length += calculateDataLength(field.fields, value, referenceData);
+        length += calculateDataLength(field.fields, value);
         break;
       case "array":
       case "array8":
@@ -307,7 +305,7 @@ function calculateDataLength(
               length += calculateDataLength(
                 field.fields,
                 elements[j],
-                referenceData
+                
               );
             }
           }
@@ -317,7 +315,7 @@ function calculateDataLength(
             length += calculateDataLength(
               elementSchema,
               { element: elements[j] },
-              referenceData
+              
             );
           }
         }
@@ -329,7 +327,7 @@ function calculateDataLength(
         length += 4;
         if (value) {
           length += field.fields
-            ? calculateDataLength(field.fields, value, referenceData)
+            ? calculateDataLength(field.fields, value)
             : value.length;
         }
         break;
@@ -382,18 +380,18 @@ function calculateDataLength(
         length += 1;
         const vtype = field.types[value.type];
         if (Array.isArray(vtype)) {
-          length += calculateDataLength(vtype, value.value, referenceData);
+          length += calculateDataLength(vtype, value.value);
         } else {
           const variableSchema = [{ name: "element", type: vtype }];
           length += calculateDataLength(
             variableSchema,
             { element: value.value },
-            referenceData
+            
           );
         }
         break;
       case "custom":
-        const tmp = field.packer(value, referenceData);
+        const tmp = field.packer(value);
         length += tmp.length;
         break;
     }
@@ -405,8 +403,7 @@ function pack(
   fields: any,
   object: any,
   dataToPack?: any,
-  offset?: any,
-  referenceData?: any
+  offset?: any
 ): { data: Buffer; length: number } {
   let data = dataToPack as h1z1Buffer;
   if (!fields) {
@@ -417,7 +414,7 @@ function pack(
   }
 
   if (!data) {
-    const dataLength = calculateDataLength(fields, object, referenceData);
+    const dataLength = calculateDataLength(fields, object);
     data = new (Buffer.alloc as any)(dataLength);
   }
   offset = offset || 0;
@@ -441,7 +438,7 @@ function pack(
     let result;
     switch (field.type) {
       case "schema":
-        offset += pack(field.fields, value, data, offset, referenceData).length;
+        offset += pack(field.fields, value, data, offset).length;
         break;
       case "array":
       case "array8":
@@ -461,7 +458,7 @@ function pack(
         }
         if (field.fields) {
           for (let j = 0; j < value.length; j++) {
-            result = pack(field.fields, value[j], data, offset, referenceData);
+            result = pack(field.fields, value[j], data, offset);
             offset += result.length;
           }
         } else if (field.elementType) {
@@ -472,7 +469,7 @@ function pack(
               { element: value[j] },
               data,
               offset,
-              referenceData
+              
             );
             offset += result.length;
           }
@@ -490,7 +487,7 @@ function pack(
       case "byteswithlength":
         if (value) {
           if (field.fields) {
-            value = pack(field.fields, value, null, null, referenceData).data;
+            value = pack(field.fields, value, null, null).data;
           }
           if (!Buffer.isBuffer(value)) {
             value = new (Buffer.from as any)(value);
@@ -620,7 +617,7 @@ function pack(
         offset++;
         const vtype = field.types[value.type];
         if (Array.isArray(vtype)) {
-          result = pack(vtype, value.value, data, offset, referenceData);
+          result = pack(vtype, value.value, data, offset);
         } else {
           const variableSchema = [{ name: "element", type: vtype }];
           result = pack(
@@ -628,13 +625,13 @@ function pack(
             { element: value.value },
             data,
             offset,
-            referenceData
+            
           );
         }
         offset += result.length;
         break;
       case "custom":
-        const customData = field.packer(value, referenceData);
+        const customData = field.packer(value);
         customData.copy(data, offset);
         offset += customData.length;
         break;
