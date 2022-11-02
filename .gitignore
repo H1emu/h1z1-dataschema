@@ -1,3 +1,2 @@
-*.js
-*.d.ts
+tests/*.js
 node_modules

@@ -1,21 +1,18 @@
 {
   "name": "h1z1-dataschema",
   "description": "Parsing and packing structured binary data formats for h1z1",
-  "version": "1.5.12",
+  "version": "1.6.0",
   "main": "src/dataschema.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/H1emu/h1z1-dataschema"
   },
   "scripts": {
-    "install": "npm run build",
     "build": "tsc",
     "test": "tsc && tsc -p tests && node ./tests/main.test.js"
   },
   "dependencies": {
-    "@types/json-schema": "^7.0.11",
     "@types/node": "18.0.0",
-    "h1z1-buffer": "1.0.1",
-    "typescript": "4.7.4"
+    "h1z1-buffer": "1.0.1"
   }
 }
