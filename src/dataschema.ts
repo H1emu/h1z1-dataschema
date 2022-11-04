@@ -275,7 +275,7 @@ function calculateDataLength(
   let length = 0;
   for (let index = 0; index < fields.length; index++) {
     const field:any = fields[index];
-    if (!(field.name in object)) {
+    if (!(field.name in object) && !Buffer.isBuffer(object)) {
       if ("defaultValue" in field) {
         value = field.defaultValue;
       } else {
@@ -286,7 +286,11 @@ function calculateDataLength(
             JSON.stringify(object, null, 4)
         );
       }
-    } else {
+    }
+    else if(Buffer.isBuffer(object)) {
+      value = object;
+    } 
+    else {
       value = object[field.name];
     }
     switch (field.type) {
@@ -486,7 +490,7 @@ function pack(
         break;
       case "byteswithlength":
         if (value) {
-          if (field.fields) {
+          if (field.fields && !Buffer.isBuffer(value)) {
             value = pack(field.fields, value, null, null).data;
           }
           if (!Buffer.isBuffer(value)) {

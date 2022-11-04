@@ -255,7 +255,7 @@ function calculateDataLength(fields, object) {
     var length = 0;
     for (var index = 0; index < fields.length; index++) {
         var field = fields[index];
-        if (!(field.name in object)) {
+        if (!(field.name in object) && !Buffer.isBuffer(object)) {
             if ("defaultValue" in field) {
                 value = field.defaultValue;
             }
@@ -265,6 +265,9 @@ function calculateDataLength(fields, object) {
                     " not found in data object: " +
                     JSON.stringify(object, null, 4));
             }
+        }
+        else if (Buffer.isBuffer(object)) {
+            value = object;
         }
         else {
             value = object[field.name];
@@ -445,7 +448,7 @@ function pack(fields, object, dataToPack, offset) {
                 break;
             case "byteswithlength":
                 if (value) {
-                    if (field.fields) {
+                    if (field.fields && !Buffer.isBuffer(value)) {
                         value = pack(field.fields, value, null, null).data;
                     }
                     if (!Buffer.isBuffer(value)) {
