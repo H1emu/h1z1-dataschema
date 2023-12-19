@@ -14,5 +14,9 @@
   "dependencies": {
     "@types/node": "18.0.0",
     "h1z1-buffer": "1.0.1"
+  },
+  "devDependencies": {
+    "@types/benchmark": "^2.1.5",
+    "benchmark": "^2.1.4"
   }
 }
