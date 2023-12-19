@@ -23,7 +23,7 @@ function parse(
   const result: any = {};
   fields = fields || [];
   for (let index = 0; index < fields.length; index++) {
-    const field:any = fields[index];
+    const field: any = fields[index];
     switch (field.type) {
       case "schema":
         const element = parse(field.fields, data, offset);
@@ -44,9 +44,6 @@ function parse(
             numElements = data.readUInt8(offset);
             offset += 1;
           }
-        }
-        if ("debuglength" in field) {
-          numElements = field.debuglength;
         }
         if (field.fields) {
           for (let j = 0; j < numElements; j++) {
@@ -72,11 +69,6 @@ function parse(
         break;
       case "bytes":
         const bytes = data.readBytes(offset, field.length);
-        if (bytes.length > 20) {
-          bytes.toJSON = function () {
-            return "[" + this.length + " " + "bytes]";
-          };
-        }
         result[field.name] = bytes;
         offset += field.length;
         break;
@@ -179,7 +171,7 @@ function parse(
               variableSchema,
               data,
               offset,
-              
+
             );
             offset += variable.length;
             result[field.name] = {
@@ -266,35 +258,48 @@ function parse(
   };
 }
 
+function getValueFromObject(field: any, object: any) {
+  // Check for Buffer
+  if (Buffer.isBuffer(object)) {
+    return object;
+  }
+
+  // Check if field exists in object
+  if (!object.hasOwnProperty(field.name)) {
+    return getDefaultValue(field, object);
+  }
+
+  // Field exists, return its value
+  return object[field.name];
+}
+
+function getDefaultValue(field: any, object: any) {
+  // Check if field has a defaultValue
+  if (field.hasOwnProperty("defaultValue")) {
+    return field.defaultValue;
+  }
+
+  // Log an error if defaultValue is not available
+  console.error(
+    `Field ${field.name} not found in data object: ${JSON.stringify(
+      object,
+      null,
+      4
+    )}`
+  );
+}
+
 function calculateDataLength(
   fields: any[],
   object: any
 ): number {
-  let value: any;
   fields = fields || [];
   let length = 0;
   for (let index = 0; index < fields.length; index++) {
-    const field:any = fields[index];
-    if (!(field.name in object) && !Buffer.isBuffer(object)) {
-      if ("defaultValue" in field) {
-        value = field.defaultValue;
-      } else {
-        console.error(
-          "Field " +
-            field.name +
-            " not found in data object: " +
-            JSON.stringify(object, null, 4)
-        );
-      }
-    }
-    else if(Buffer.isBuffer(object)) {
-      value = object;
-    } 
-    else {
-      value = object[field.name];
-    }
+    const field: any = fields[index];
     switch (field.type) {
       case "schema":
+        const value = getValueFromObject(field, object);
         length += calculateDataLength(field.fields, value);
         break;
       case "array":
@@ -309,7 +314,7 @@ function calculateDataLength(
               length += calculateDataLength(
                 field.fields,
                 elements[j],
-                
+
               );
             }
           }
@@ -319,7 +324,7 @@ function calculateDataLength(
             length += calculateDataLength(
               elementSchema,
               { element: elements[j] },
-              
+
             );
           }
         }
@@ -327,14 +332,16 @@ function calculateDataLength(
       case "bytes":
         length += field.length;
         break;
-      case "byteswithlength":
+      case "byteswithlength": {
         length += 4;
+        const value = getValueFromObject(field, object);
         if (value) {
           length += field.fields
             ? calculateDataLength(field.fields, value)
             : value.length;
         }
         break;
+      }
       case "int64":
       case "uint64":
       case "uint64string":
@@ -371,16 +378,23 @@ function calculateDataLength(
       case "bitflags":
         length += 1;
         break;
-      case "string":
+      case "string": {
+        const value = getValueFromObject(field, object);
         length += 4 + value.length;
         break;
-      case "fixedlengthstring":
+      }
+      case "fixedlengthstring": {
+        const value = getValueFromObject(field, object);
         length += value.length;
         break;
-      case "nullstring":
+      }
+      case "nullstring": {
+        const value = getValueFromObject(field, object);
         length += 1 + value.length;
         break;
-      case "variabletype8":
+      }
+      case "variabletype8": {
+        const value = getValueFromObject(field, object);
         length += 1;
         const vtype = field.types[value.type];
         if (Array.isArray(vtype)) {
@@ -390,14 +404,17 @@ function calculateDataLength(
           length += calculateDataLength(
             variableSchema,
             { element: value.value },
-            
+
           );
         }
         break;
-      case "custom":
+      }
+      case "custom": {
+        const value = getValueFromObject(field, object);
         const tmp = field.packer(value);
         length += tmp.length;
         break;
+      }
     }
   };
   return length;
@@ -419,26 +436,13 @@ function pack(
 
   if (!data) {
     const dataLength = calculateDataLength(fields, object);
-    data = new (Buffer.alloc as any)(dataLength);
+    data = new (Buffer.allocUnsafe as any)(dataLength);
   }
   offset = offset || 0;
   const startOffset = offset;
-  let value: any;
   for (let index = 0; index < fields.length; index++) {
-    const field:any = fields[index];
-    if (!(field.name in object)) {
-      if ("defaultValue" in field) {
-        value = field.defaultValue;
-      } else {
-        console.error(
-          "Field " +
-            field.name +
-            " not found in data object and no default value"
-        );
-      }
-    } else {
-      value = object[field.name];
-    }
+    const field: any = fields[index];
+    let value = getValueFromObject(field, object);
     let result;
     switch (field.type) {
       case "schema":
@@ -473,7 +477,7 @@ function pack(
               { element: value[j] },
               data,
               offset,
-              
+
             );
             offset += result.length;
           }
@@ -629,7 +633,7 @@ function pack(
             { element: value.value },
             data,
             offset,
-            
+
           );
         }
         offset += result.length;

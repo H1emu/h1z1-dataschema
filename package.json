@@ -12,11 +12,11 @@
     "test": "tsc && tsc -p tests && node --test"
   },
   "dependencies": {
-    "h1z1-buffer": "1.0.1"
+    "h1z1-buffer": "^1.0.2"
   },
   "devDependencies": {
     "@types/benchmark": "^2.1.5",
-    "benchmark": "^2.1.4",
-    "@types/node": "^20.10.5"
+    "@types/node": "^20.10.5",
+    "benchmark": "^2.1.4"
   }
 }
