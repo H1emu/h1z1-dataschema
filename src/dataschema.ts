@@ -13,11 +13,7 @@ export interface h1z1Buffer extends Buffer {
   readNullTerminatedString(offset: number): any;
 }
 
-function parse(
-  fields: any,
-  dataToParse: Buffer,
-  offset: number
-): any {
+function parse(fields: any, dataToParse: Buffer, offset: number): any {
   const data = dataToParse as h1z1Buffer;
   const startOffset = offset;
   const result: any = {};
@@ -167,12 +163,7 @@ function parse(
             };
           } else {
             const variableSchema = [{ name: "element", type: vtype }];
-            const variable: any = parse(
-              variableSchema,
-              data,
-              offset,
-
-            );
+            const variable: any = parse(variableSchema, data, offset);
             offset += variable.length;
             result[field.name] = {
               type: vtypeidx,
@@ -251,7 +242,7 @@ function parse(
         offset += tmp.length;
         break;
     }
-  };
+  }
   return {
     result: result,
     length: offset - startOffset,
@@ -284,15 +275,12 @@ function getDefaultValue(field: any, object: any) {
     `Field ${field.name} not found in data object: ${JSON.stringify(
       object,
       null,
-      4
-    )}`
+      4,
+    )}`,
   );
 }
 
-function calculateDataLength(
-  fields: any[],
-  object: any
-): number {
+function calculateDataLength(fields: any[], object: any): number {
   fields = fields || [];
   let length = 0;
   for (let index = 0; index < fields.length; index++) {
@@ -311,21 +299,15 @@ function calculateDataLength(
         if (field.fields) {
           if (elements?.length) {
             for (let j = 0; j < elements.length; j++) {
-              length += calculateDataLength(
-                field.fields,
-                elements[j],
-
-              );
+              length += calculateDataLength(field.fields, elements[j]);
             }
           }
         } else if (field.elementType) {
           const elementSchema = [{ name: "element", type: field.elementType }];
           for (let j = 0; j < elements.length; j++) {
-            length += calculateDataLength(
-              elementSchema,
-              { element: elements[j] },
-
-            );
+            length += calculateDataLength(elementSchema, {
+              element: elements[j],
+            });
           }
         }
         break;
@@ -401,11 +383,9 @@ function calculateDataLength(
           length += calculateDataLength(vtype, value.value);
         } else {
           const variableSchema = [{ name: "element", type: vtype }];
-          length += calculateDataLength(
-            variableSchema,
-            { element: value.value },
-
-          );
+          length += calculateDataLength(variableSchema, {
+            element: value.value,
+          });
         }
         break;
       }
@@ -416,7 +396,7 @@ function calculateDataLength(
         break;
       }
     }
-  };
+  }
   return length;
 }
 
@@ -424,7 +404,7 @@ function pack(
   fields: any,
   object: any,
   dataToPack?: any,
-  offset?: any
+  offset?: any,
 ): { data: Buffer; length: number } {
   let data = dataToPack as h1z1Buffer;
   if (!fields) {
@@ -461,7 +441,7 @@ function pack(
         }
         if (field.fixedLength && field.fixedLength != value.length) {
           console.error(
-            `Array (${field.name}) length isn't respected ${value.length}/${field.fixedLength}`
+            `Array (${field.name}) length isn't respected ${value.length}/${field.fixedLength}`,
           );
         }
         if (field.fields) {
@@ -472,13 +452,7 @@ function pack(
         } else if (field.elementType) {
           const elementSchema = [{ name: "element", type: field.elementType }];
           for (let j = 0; j < value.length; j++) {
-            result = pack(
-              elementSchema,
-              { element: value[j] },
-              data,
-              offset,
-
-            );
+            result = pack(elementSchema, { element: value[j] }, data, offset);
             offset += result.length;
           }
         } else {
@@ -510,7 +484,7 @@ function pack(
         }
         break;
       case "uint64":
-        data.writeBigUInt64LE(value, offset);
+        data.writeBigUInt64LE(BigInt(value), offset);
         offset += 8;
         break;
       case "uint64string":
@@ -518,7 +492,7 @@ function pack(
         for (let j = 0; j < 8; j++) {
           data.writeUInt8(
             parseInt(value.substr(2 + (7 - j) * 2, 2), 16),
-            offset + j
+            offset + j,
           );
         }
         offset += 8;
@@ -628,13 +602,7 @@ function pack(
           result = pack(vtype, value.value, data, offset);
         } else {
           const variableSchema = [{ name: "element", type: vtype }];
-          result = pack(
-            variableSchema,
-            { element: value.value },
-            data,
-            offset,
-
-          );
+          result = pack(variableSchema, { element: value.value }, data, offset);
         }
         offset += result.length;
         break;
@@ -644,7 +612,7 @@ function pack(
         offset += customData.length;
         break;
     }
-  };
+  }
   return {
     data: data,
     length: offset - startOffset,
