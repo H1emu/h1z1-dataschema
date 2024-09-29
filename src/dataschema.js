@@ -240,19 +240,14 @@ function parse(fields, dataToParse, offset) {
         length: offset - startOffset,
     };
 }
-function getValueFromObject(field, object, strict = false) {
+function getValueFromObject(field, object) {
     // Check for Buffer
     if (Buffer.isBuffer(object)) {
         return object;
     }
     // Check if field exists in object
     if (!object.hasOwnProperty(field.name)) {
-        if (strict) {
-            throw `${field.name} doesn't exist in object ${JSON.stringify(object)}`;
-        }
-        else {
-            return getDefaultValue(field, object);
-        }
+        return getDefaultValue(field, object);
     }
     // Field exists, return its value
     return object[field.name];
@@ -402,7 +397,7 @@ function pack(fields, object, dataToPack, offset) {
     const startOffset = offset;
     for (let index = 0; index < fields.length; index++) {
         const field = fields[index];
-        let value = getValueFromObject(field, object, true);
+        let value = getValueFromObject(field, object);
         let result;
         switch (field.type) {
             case "schema":
