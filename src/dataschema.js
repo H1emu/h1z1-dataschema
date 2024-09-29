@@ -2,22 +2,22 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 require("h1z1-buffer");
 function parse(fields, dataToParse, offset) {
-    var data = dataToParse;
-    var startOffset = offset;
-    var result = {};
+    const data = dataToParse;
+    const startOffset = offset;
+    const result = {};
     fields = fields || [];
-    for (var index = 0; index < fields.length; index++) {
-        var field = fields[index];
+    for (let index = 0; index < fields.length; index++) {
+        const field = fields[index];
         switch (field.type) {
             case "schema":
-                var element = parse(field.fields, data, offset);
+                const element = parse(field.fields, data, offset);
                 offset += element.length;
                 result[field.name] = element.result;
                 break;
             case "array":
             case "array8":
-                var elements = [];
-                var numElements = 0;
+                const elements = [];
+                let numElements = 0;
                 if ("length" in field) {
                     numElements = field.length;
                 }
@@ -32,18 +32,18 @@ function parse(fields, dataToParse, offset) {
                     }
                 }
                 if (field.fields) {
-                    for (var j = 0; j < numElements; j++) {
-                        var element_1 = parse(field.fields, data, offset);
-                        offset += element_1.length;
-                        elements.push(element_1.result);
+                    for (let j = 0; j < numElements; j++) {
+                        const element = parse(field.fields, data, offset);
+                        offset += element.length;
+                        elements.push(element.result);
                     }
                 }
                 else if (field.elementType) {
-                    var elementSchema = [{ name: "element", type: field.elementType }];
-                    for (var j = 0; j < numElements; j++) {
-                        var element_2 = parse(elementSchema, data, offset);
-                        offset += element_2.length;
-                        elements.push(element_2.result.element);
+                    const elementSchema = [{ name: "element", type: field.elementType }];
+                    for (let j = 0; j < numElements; j++) {
+                        const element = parse(elementSchema, data, offset);
+                        offset += element.length;
+                        elements.push(element.result.element);
                     }
                 }
                 result[field.name] = elements;
@@ -55,25 +55,25 @@ function parse(fields, dataToParse, offset) {
                 result[field.name] = data.readBytes(offset, field.length);
                 break;
             case "bytes":
-                var bytes = data.readBytes(offset, field.length);
+                const bytes = data.readBytes(offset, field.length);
                 result[field.name] = bytes;
                 offset += field.length;
                 break;
             case "byteswithlength":
-                var length_1 = data.readUInt32LE(offset);
+                const length = data.readUInt32LE(offset);
                 offset += 4;
-                if (length_1 > 0) {
+                if (length > 0) {
                     if (field.fields) {
-                        var element_3 = parse(field.fields, data, offset);
-                        if (element_3) {
-                            result[field.name] = element_3.result;
+                        const element = parse(field.fields, data, offset);
+                        if (element) {
+                            result[field.name] = element.result;
                         }
                     }
                     else {
-                        var bytes_1 = data.readBytes(offset, length_1);
-                        result[field.name] = bytes_1;
+                        const bytes = data.readBytes(offset, length);
+                        result[field.name] = bytes;
                     }
-                    offset += length_1;
+                    offset += length;
                 }
                 break;
             case "uint32":
@@ -128,25 +128,25 @@ function parse(fields, dataToParse, offset) {
                 break;
             case "int64":
             case "uint64": {
-                var value_1 = data.readBigInt64LE(offset);
+                const value = data.readBigInt64LE(offset);
                 offset += 8;
-                return value_1;
+                return value;
             }
             case "uint64string":
             case "int64string":
-                var str = "0x";
-                for (var j = 7; j >= 0; j--) {
+                let str = "0x";
+                for (let j = 7; j >= 0; j--) {
                     str += ("0" + data.readUInt8(offset + j).toString(16)).substr(-2);
                 }
                 result[field.name] = str;
                 offset += 8;
                 break;
             case "variabletype8":
-                var vtypeidx = data.readUInt8(offset), vtype = field.types[vtypeidx];
+                const vtypeidx = data.readUInt8(offset), vtype = field.types[vtypeidx];
                 offset += 1;
                 if (vtype) {
                     if (Array.isArray(vtype)) {
-                        var variable = parse(vtype, data, offset);
+                        const variable = parse(vtype, data, offset);
                         offset += variable.length;
                         result[field.name] = {
                             type: vtypeidx,
@@ -154,8 +154,8 @@ function parse(fields, dataToParse, offset) {
                         };
                     }
                     else {
-                        var variableSchema = [{ name: "element", type: vtype }];
-                        var variable = parse(variableSchema, data, offset);
+                        const variableSchema = [{ name: "element", type: vtype }];
+                        const variable = parse(variableSchema, data, offset);
                         offset += variable.length;
                         result[field.name] = {
                             type: vtypeidx,
@@ -165,10 +165,10 @@ function parse(fields, dataToParse, offset) {
                 }
                 break;
             case "bitflags":
-                var value = data.readUInt8(offset);
-                var flags = {};
-                for (var j = 0; j < field.flags.length; j++) {
-                    var flag = field.flags[j];
+                const value = data.readUInt8(offset);
+                const flags = {};
+                for (let j = 0; j < field.flags.length; j++) {
+                    const flag = field.flags[j];
                     flags[flag.name] = !!(value & (1 << flag.bit));
                 }
                 result[field.name] = flags;
@@ -211,25 +211,25 @@ function parse(fields, dataToParse, offset) {
                 offset += 1;
                 break;
             case "string": {
-                var string = data.readPrefixedStringLE(offset);
+                const string = data.readPrefixedStringLE(offset);
                 result[field.name] = string;
                 offset += 4 + string.length;
                 break;
             }
             case "fixedlengthstring": {
-                var string = data.toString("utf8", offset, offset + field.length);
+                const string = data.toString("utf8", offset, offset + field.length);
                 result[field.name] = string;
                 offset += string.length;
                 break;
             }
             case "nullstring": {
-                var string = data.readNullTerminatedString(offset);
+                const string = data.readNullTerminatedString(offset);
                 result[field.name] = string;
                 offset += 1 + string.length;
                 break;
             }
             case "custom":
-                var tmp = field.parser(data, offset);
+                const tmp = field.parser(data, offset);
                 result[field.name] = tmp.value;
                 offset += tmp.length;
                 break;
@@ -240,14 +240,19 @@ function parse(fields, dataToParse, offset) {
         length: offset - startOffset,
     };
 }
-function getValueFromObject(field, object) {
+function getValueFromObject(field, object, strict = false) {
     // Check for Buffer
     if (Buffer.isBuffer(object)) {
         return object;
     }
     // Check if field exists in object
     if (!object.hasOwnProperty(field.name)) {
-        return getDefaultValue(field, object);
+        if (strict) {
+            throw `${field.name} doesn't exist in object ${JSON.stringify(object)}`;
+        }
+        else {
+            return getDefaultValue(field, object);
+        }
     }
     // Field exists, return its value
     return object[field.name];
@@ -258,16 +263,16 @@ function getDefaultValue(field, object) {
         return field.defaultValue;
     }
     // Log an error if defaultValue is not available
-    console.error("Field ".concat(field.name, " not found in data object: ").concat(JSON.stringify(object, null, 4)));
+    throw `Field ${field.name} not found in data object: ${JSON.stringify(object, null, 4)}`;
 }
 function calculateDataLength(fields, object) {
     fields = fields || [];
-    var length = 0;
-    for (var index = 0; index < fields.length; index++) {
-        var field = fields[index];
+    let length = 0;
+    for (let index = 0; index < fields.length; index++) {
+        const field = fields[index];
         switch (field.type) {
             case "schema":
-                var value = getValueFromObject(field, object);
+                const value = getValueFromObject(field, object);
                 length += calculateDataLength(field.fields, value);
                 break;
             case "array":
@@ -275,17 +280,17 @@ function calculateDataLength(fields, object) {
                 if (!field.fixedLength) {
                     length += field.type == "array" ? 4 : 1;
                 }
-                var elements = object[field.name];
+                const elements = object[field.name];
                 if (field.fields) {
-                    if (elements === null || elements === void 0 ? void 0 : elements.length) {
-                        for (var j = 0; j < elements.length; j++) {
+                    if (elements?.length) {
+                        for (let j = 0; j < elements.length; j++) {
                             length += calculateDataLength(field.fields, elements[j]);
                         }
                     }
                 }
                 else if (field.elementType) {
-                    var elementSchema = [{ name: "element", type: field.elementType }];
-                    for (var j = 0; j < elements.length; j++) {
+                    const elementSchema = [{ name: "element", type: field.elementType }];
+                    for (let j = 0; j < elements.length; j++) {
                         length += calculateDataLength(elementSchema, {
                             element: elements[j],
                         });
@@ -297,11 +302,11 @@ function calculateDataLength(fields, object) {
                 break;
             case "byteswithlength": {
                 length += 4;
-                var value_2 = getValueFromObject(field, object);
-                if (value_2) {
+                const value = getValueFromObject(field, object);
+                if (value) {
                     length += field.fields
-                        ? calculateDataLength(field.fields, value_2)
-                        : value_2.length;
+                        ? calculateDataLength(field.fields, value)
+                        : value.length;
                 }
                 break;
             }
@@ -342,38 +347,38 @@ function calculateDataLength(fields, object) {
                 length += 1;
                 break;
             case "string": {
-                var value_3 = getValueFromObject(field, object);
-                length += 4 + value_3.length;
+                const value = getValueFromObject(field, object);
+                length += 4 + value.length;
                 break;
             }
             case "fixedlengthstring": {
-                var value_4 = getValueFromObject(field, object);
-                length += value_4.length;
+                const value = getValueFromObject(field, object);
+                length += value.length;
                 break;
             }
             case "nullstring": {
-                var value_5 = getValueFromObject(field, object);
-                length += 1 + value_5.length;
+                const value = getValueFromObject(field, object);
+                length += 1 + value.length;
                 break;
             }
             case "variabletype8": {
-                var value_6 = getValueFromObject(field, object);
+                const value = getValueFromObject(field, object);
                 length += 1;
-                var vtype = field.types[value_6.type];
+                const vtype = field.types[value.type];
                 if (Array.isArray(vtype)) {
-                    length += calculateDataLength(vtype, value_6.value);
+                    length += calculateDataLength(vtype, value.value);
                 }
                 else {
-                    var variableSchema = [{ name: "element", type: vtype }];
+                    const variableSchema = [{ name: "element", type: vtype }];
                     length += calculateDataLength(variableSchema, {
-                        element: value_6.value,
+                        element: value.value,
                     });
                 }
                 break;
             }
             case "custom": {
-                var value_7 = getValueFromObject(field, object);
-                var tmp = field.packer(value_7);
+                const value = getValueFromObject(field, object);
+                const tmp = field.packer(value);
                 length += tmp.length;
                 break;
             }
@@ -382,7 +387,7 @@ function calculateDataLength(fields, object) {
     return length;
 }
 function pack(fields, object, dataToPack, offset) {
-    var data = dataToPack;
+    let data = dataToPack;
     if (!fields) {
         return {
             data: new Buffer.alloc(0),
@@ -390,15 +395,15 @@ function pack(fields, object, dataToPack, offset) {
         };
     }
     if (!data) {
-        var dataLength = calculateDataLength(fields, object);
+        const dataLength = calculateDataLength(fields, object);
         data = new Buffer.allocUnsafe(dataLength);
     }
     offset = offset || 0;
-    var startOffset = offset;
-    for (var index = 0; index < fields.length; index++) {
-        var field = fields[index];
-        var value = getValueFromObject(field, object);
-        var result = void 0;
+    const startOffset = offset;
+    for (let index = 0; index < fields.length; index++) {
+        const field = fields[index];
+        let value = getValueFromObject(field, object, true);
+        let result;
         switch (field.type) {
             case "schema":
                 offset += pack(field.fields, value, data, offset).length;
@@ -416,23 +421,23 @@ function pack(fields, object, dataToPack, offset) {
                     }
                 }
                 if (field.fixedLength && field.fixedLength != value.length) {
-                    console.error("Array (".concat(field.name, ") length isn't respected ").concat(value.length, "/").concat(field.fixedLength));
+                    throw `Array (${field.name}) length isn't respected ${value.length}/${field.fixedLength}`;
                 }
                 if (field.fields) {
-                    for (var j = 0; j < value.length; j++) {
+                    for (let j = 0; j < value.length; j++) {
                         result = pack(field.fields, value[j], data, offset);
                         offset += result.length;
                     }
                 }
                 else if (field.elementType) {
-                    var elementSchema = [{ name: "element", type: field.elementType }];
-                    for (var j = 0; j < value.length; j++) {
+                    const elementSchema = [{ name: "element", type: field.elementType }];
+                    for (let j = 0; j < value.length; j++) {
                         result = pack(elementSchema, { element: value[j] }, data, offset);
                         offset += result.length;
                     }
                 }
                 else {
-                    console.error("Invalid array schema");
+                    throw "Invalid array schema";
                 }
                 break;
             case "bytes":
@@ -466,7 +471,7 @@ function pack(fields, object, dataToPack, offset) {
                 break;
             case "uint64string":
             case "int64string":
-                for (var j = 0; j < 8; j++) {
+                for (let j = 0; j < 8; j++) {
                     data.writeUInt8(parseInt(value.substr(2 + (7 - j) * 2, 2), 16), offset + j);
                 }
                 offset += 8;
@@ -516,9 +521,9 @@ function pack(fields, object, dataToPack, offset) {
                 offset += 4;
                 break;
             case "bitflags":
-                var flagValue = 0;
-                for (var j = 0; j < field.flags.length; j++) {
-                    var flag = field.flags[j];
+                let flagValue = 0;
+                for (let j = 0; j < field.flags.length; j++) {
+                    const flag = field.flags[j];
                     if (value[flag.name]) {
                         flagValue = flagValue | (1 << flag.bit);
                     }
@@ -571,21 +576,23 @@ function pack(fields, object, dataToPack, offset) {
             case "variabletype8":
                 data.writeUInt8(value.type, offset);
                 offset++;
-                var vtype = field.types[value.type];
+                const vtype = field.types[value.type];
                 if (Array.isArray(vtype)) {
                     result = pack(vtype, value.value, data, offset);
                 }
                 else {
-                    var variableSchema = [{ name: "element", type: vtype }];
+                    const variableSchema = [{ name: "element", type: vtype }];
                     result = pack(variableSchema, { element: value.value }, data, offset);
                 }
                 offset += result.length;
                 break;
             case "custom":
-                var customData = field.packer(value);
+                const customData = field.packer(value);
                 customData.copy(data, offset);
                 offset += customData.length;
                 break;
+            default:
+                throw `Unknown field type: ${field.type}`;
         }
     }
     return {
@@ -593,7 +600,7 @@ function pack(fields, object, dataToPack, offset) {
         length: offset - startOffset,
     };
 }
-var dataschema = {
+const dataschema = {
     pack: pack,
     parse: parse,
     calculateDataLength: calculateDataLength,

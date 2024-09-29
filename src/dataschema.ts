@@ -249,7 +249,7 @@ function parse(fields: any, dataToParse: Buffer, offset: number): any {
   };
 }
 
-function getValueFromObject(field: any, object: any) {
+function getValueFromObject(field: any, object: any, strict: boolean = false) {
   // Check for Buffer
   if (Buffer.isBuffer(object)) {
     return object;
@@ -257,7 +257,11 @@ function getValueFromObject(field: any, object: any) {
 
   // Check if field exists in object
   if (!object.hasOwnProperty(field.name)) {
-    return getDefaultValue(field, object);
+    if (strict) {
+      throw `${field.name} doesn't exist in object ${JSON.stringify(object)}`;
+    } else {
+      return getDefaultValue(field, object);
+    }
   }
 
   // Field exists, return its value
@@ -271,13 +275,11 @@ function getDefaultValue(field: any, object: any) {
   }
 
   // Log an error if defaultValue is not available
-  console.error(
-    `Field ${field.name} not found in data object: ${JSON.stringify(
-      object,
-      null,
-      4,
-    )}`,
-  );
+  throw `Field ${field.name} not found in data object: ${JSON.stringify(
+    object,
+    null,
+    4,
+  )}`;
 }
 
 function calculateDataLength(fields: any[], object: any): number {
@@ -422,7 +424,7 @@ function pack(
   const startOffset = offset;
   for (let index = 0; index < fields.length; index++) {
     const field: any = fields[index];
-    let value = getValueFromObject(field, object);
+    let value = getValueFromObject(field, object, true);
     let result;
     switch (field.type) {
       case "schema":
@@ -440,9 +442,7 @@ function pack(
           }
         }
         if (field.fixedLength && field.fixedLength != value.length) {
-          console.error(
-            `Array (${field.name}) length isn't respected ${value.length}/${field.fixedLength}`,
-          );
+          throw `Array (${field.name}) length isn't respected ${value.length}/${field.fixedLength}`;
         }
         if (field.fields) {
           for (let j = 0; j < value.length; j++) {
@@ -456,7 +456,7 @@ function pack(
             offset += result.length;
           }
         } else {
-          console.error("Invalid array schema");
+          throw "Invalid array schema";
         }
         break;
       case "bytes":
@@ -611,6 +611,8 @@ function pack(
         customData.copy(data, offset);
         offset += customData.length;
         break;
+      default:
+        throw `Unknown field type: ${field.type}`;
     }
   }
   return {
