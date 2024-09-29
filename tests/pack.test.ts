@@ -1,24 +1,28 @@
+import assert from "node:assert";
 import dataschema from "../src/dataschema";
-import test from "node:test"
+import test from "node:test";
 const { pack } = dataschema;
 
 test("pack", async (t) => {
   await t.test("SkyChange", (t) => {
     testSkyChangePacket();
-  })
+  });
   await t.test("RespawnLocations", (t) => {
     testRespawnLocationsPacket();
-  })
+  });
   await t.test("MissingField", (t) => {
     testMissingField();
-  })
+  });
   await t.test("ArrayLengthMismatch", (t) => {
     testArrayLengthMismatch();
-  })
-  await t.test("OtherErrors", (t) => {
-    testOtherErrors();
-  })
-})
+  });
+  await t.test("unknownType", (t) => {
+    testUnknownFieldError();
+  });
+  await t.test("wrongType", (t) => {
+    testWrongTypeError();
+  });
+});
 
 function testSkyChangePacket() {
   const schema = require("./data/skychangeschema.json");
@@ -27,10 +31,10 @@ function testSkyChangePacket() {
 
   const expected = Buffer.from(require("./data/skychangeresult.json"));
 
-  const result = pack(schema, obj)
+  const result = pack(schema, obj);
 
   if (result.data.compare(expected) !== 0) {
-    throw new Error("SkyChange pack failed")
+    throw new Error("SkyChange pack failed");
   }
 }
 
@@ -41,10 +45,10 @@ function testRespawnLocationsPacket() {
 
   const expected = Buffer.from(require("./data/RespawnLocationsresult.json"));
 
-  const result = pack(schema, obj)
+  const result = pack(schema, obj);
 
   if (result.data.compare(expected) !== 0) {
-    throw new Error("RespawnLocations pack failed")
+    throw new Error("RespawnLocations pack failed");
   }
 }
 
@@ -58,13 +62,9 @@ function testMissingField() {
 
   const obj = {};
 
-  try {
+  assert.throws(() => {
     pack(schema, obj);
-  } catch (error:any) {
-    if (!error.message.includes("Field field1 not found in data object")) {
-      throw new Error("MissingField test failed");
-    }
-  }
+  });
 }
 
 function testArrayLengthMismatch() {
@@ -86,16 +86,30 @@ function testArrayLengthMismatch() {
     arrayField: [1],
   };
 
-  try {
+  assert.throws(() => {
     pack(schema, obj);
-  } catch (error:any) {
-    if (!error.message.includes("Array (arrayField) length isn't respected")) {
-      throw new Error("ArrayLengthMismatch test failed");
-    }
-  }
+  });
 }
 
-function testOtherErrors() {
+function testWrongTypeError() {
+  const schema = [
+    {
+      name: "field",
+      type: "array",
+    },
+  ];
+
+  const obj = {
+    field: "i'mnotanarray",
+  };
+
+  assert.throws(() => {
+    let d = pack(schema, obj);
+    console.log(d);
+  });
+}
+
+function testUnknownFieldError() {
   const schema = [
     {
       name: "unknownField",
@@ -107,11 +121,7 @@ function testOtherErrors() {
     unknownField: "value",
   };
 
-  try {
+  assert.throws(() => {
     pack(schema, obj);
-  } catch (error:any) {
-    if (!error.message.includes("Unknown field type: unknownType")) {
-      throw new Error("OtherErrors test failed");
-    }
-  }
+  });
 }
