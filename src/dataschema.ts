@@ -611,6 +611,9 @@ function pack(
         customData.copy(data, offset);
         offset += customData.length;
         break;
+      default:
+        console.error(`Unknown field type: ${field.type}`);
+        break;
     }
   }
   return {
