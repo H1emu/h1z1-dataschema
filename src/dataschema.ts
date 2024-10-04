@@ -390,6 +390,10 @@ function calculateDataLength(fields: any[], object: any): number {
         }
         break;
       }
+      case "debug": {
+        console.error(field.name);
+        break;
+      }
       case "custom": {
         const value = getValueFromObject(field, object);
         const tmp = field.packer(value);
@@ -408,7 +412,7 @@ function pack(
   offset?: any,
 ): { data: Buffer; length: number } {
   let data = dataToPack as h1z1Buffer;
-  if (!fields) {
+  if (!fields.length) {
     return {
       data: new (Buffer.alloc as any)(0),
       length: 0,
