@@ -259,16 +259,13 @@ function getValueFromObject(field: any, object: any) {
   }
 
   // Check if field exists in object
-  if (!object.hasOwnProperty(field.name)) {
+  if (object[field.name] === undefined) {
+    console.error("obj undefined for ", field.name);
     return getDefaultValue(field, object);
   }
 
   // Field exists, return its value
-  const obj = object[field.name];
-  if (obj === undefined) {
-    console.error("obj undefined for ", field.name);
-  }
-  return obj;
+  return object[field.name];
 }
 
 function getDefaultValue(field: any, object: any) {
