@@ -264,7 +264,11 @@ function getValueFromObject(field: any, object: any) {
   }
 
   // Field exists, return its value
-  return object[field.name];
+  const obj = object[field.name];
+  if (obj === undefined) {
+    console.error("obj undefined for ", field.name);
+  }
+  return obj;
 }
 
 function getDefaultValue(field: any, object: any) {
