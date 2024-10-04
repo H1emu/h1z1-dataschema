@@ -259,8 +259,7 @@ function getValueFromObject(field: any, object: any) {
   }
 
   // Check if field exists in object
-  if (object[field.name] === undefined) {
-    console.error("obj undefined for ", field.name);
+  if (object.hasOwnProperty(field.name)) {
     return getDefaultValue(field, object);
   }
 
@@ -270,7 +269,10 @@ function getValueFromObject(field: any, object: any) {
 
 function getDefaultValue(field: any, object: any) {
   // Check if field has a defaultValue
-  if (field.hasOwnProperty("defaultValue")) {
+  if (
+    field.hasOwnProperty("defaultValue") &&
+    field.defaultValue !== undefined
+  ) {
     return field.defaultValue;
   }
 
