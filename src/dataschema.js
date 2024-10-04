@@ -246,7 +246,7 @@ function getValueFromObject(field, object) {
         return object;
     }
     // Check if field exists in object
-    if (!object.hasOwnProperty(field.name)) {
+    if (object[field.name] === undefined) {
         return getDefaultValue(field, object);
     }
     // Field exists, return its value
