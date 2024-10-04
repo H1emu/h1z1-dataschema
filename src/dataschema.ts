@@ -610,6 +610,9 @@ function pack(
         customData.copy(data, offset);
         offset += customData.length;
         break;
+      case "debug":
+        console.log(field.name);
+        break;
       default:
         throw `Unknown field type: ${field.type}`;
     }
