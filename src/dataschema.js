@@ -48,6 +48,9 @@ function parse(fields, dataToParse, offset) {
                 }
                 result[field.name] = elements;
                 break;
+            case "debug":
+                console.log(field.name);
+                break;
             case "debugoffset":
                 result[field.name] = offset;
                 break;

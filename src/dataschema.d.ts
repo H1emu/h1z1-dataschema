@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import "h1z1-buffer";
 export interface h1z1Buffer extends Buffer {
     writeBytes(value: any, offset: number, length?: any): any;
