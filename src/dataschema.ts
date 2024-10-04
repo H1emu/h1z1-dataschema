@@ -58,7 +58,7 @@ function parse(fields: any, dataToParse: Buffer, offset: number): any {
         result[field.name] = elements;
         break;
       case "debug":
-        console.log(field.name);
+        console.error(field.name);
         break;
       case "debugoffset":
         result[field.name] = offset;
@@ -611,7 +611,7 @@ function pack(
         offset += customData.length;
         break;
       case "debug":
-        console.log(field.name);
+        console.error(field.name);
         break;
       default:
         throw `Unknown field type: ${field.type}`;
