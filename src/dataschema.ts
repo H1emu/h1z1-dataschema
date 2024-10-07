@@ -264,11 +264,7 @@ function getValueFromObject(field: any, object: any) {
   }
 
   // Field exists, return its value
-  const obj = object[field.name];
-  if (obj === undefined) {
-    console.error("obj undefined for ", field.name);
-  }
-  return obj;
+  return object[field.name];
 }
 
 function getDefaultValue(field: any, object: any) {
@@ -395,7 +391,7 @@ function calculateDataLength(fields: any[], object: any): number {
         break;
       }
       case "debug": {
-        console.error("[debug-calculateDataLenght]" + field.name);
+        console.error("[debug-calculateDataLength]" + field.name);
         break;
       }
       case "custom": {
@@ -412,11 +408,11 @@ function calculateDataLength(fields: any[], object: any): number {
 function pack(
   fields: any,
   object: any,
-  dataToPack?: any,
-  offset?: any,
+  dataToPack?: Buffer,
+  offset?: number,
 ): { data: Buffer; length: number } {
   let data = dataToPack as h1z1Buffer;
-  if (!fields.length) {
+  if (!fields) {
     return {
       data: new (Buffer.alloc as any)(0),
       length: 0,
@@ -476,7 +472,7 @@ function pack(
       case "byteswithlength":
         if (value) {
           if (field.fields && !Buffer.isBuffer(value)) {
-            value = pack(field.fields, value, null, null).data;
+            value = pack(field.fields, value).data;
           }
           if (!Buffer.isBuffer(value)) {
             value = new (Buffer.from as any)(value);
