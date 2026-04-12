@@ -1,279 +1,218 @@
-import "h1z1-buffer";
+import { SmartBuffer } from "smart-buffer";
 
-export interface h1z1Buffer extends Buffer {
-  writeBytes(value: any, offset: number, length?: any): any;
-  writePrefixedStringLE(value: any, offset: number): any;
-  writeUInt64String(value: any, offset: number): any;
-  writeInt64String(value: any, offset: number): any;
-  writeNullTerminatedString(value: any, offset: number): any;
-  readBytes(offset: number, length: any): any;
-  readPrefixedStringLE(offset: number): any;
-  readUInt64String(offset: number): any;
-  readInt64String(offset: number): any;
-  readNullTerminatedString(offset: number): any;
-}
-
-function parse(fields: any, dataToParse: Buffer, offset: number): any {
-  const data = dataToParse as h1z1Buffer;
-  const startOffset = offset;
+function _parse(fields: any[], sb: SmartBuffer): any {
   const result: any = {};
   fields = fields || [];
   for (let index = 0; index < fields.length; index++) {
     const field: any = fields[index];
     switch (field.type) {
       case "schema":
-        const element = parse(field.fields, data, offset);
-        offset += element.length;
-        result[field.name] = element.result;
+        result[field.name] = _parse(field.fields, sb);
         break;
       case "array":
-      case "array8":
+      case "array8": {
         const elements = [];
         let numElements = 0;
         if ("length" in field) {
           numElements = field.length;
         } else {
           if (field.type == "array") {
-            numElements = data.readUInt32LE(offset);
-            offset += 4;
-          } else if (field.type == "array8") {
-            numElements = data.readUInt8(offset);
-            offset += 1;
+            numElements = sb.readUInt32LE();
+          } else {
+            numElements = sb.readUInt8();
           }
         }
         if (field.fields) {
           for (let j = 0; j < numElements; j++) {
-            const element = parse(field.fields, data, offset);
-            offset += element.length;
-            elements.push(element.result);
+            elements.push(_parse(field.fields, sb));
           }
         } else if (field.elementType) {
           const elementSchema = [{ name: "element", type: field.elementType }];
           for (let j = 0; j < numElements; j++) {
-            const element = parse(elementSchema, data, offset);
-            offset += element.length;
-            elements.push(element.result.element);
+            elements.push(_parse(elementSchema, sb).element);
           }
         }
         result[field.name] = elements;
         break;
+      }
       case "debug":
         console.error("[debug-parse]" + field.name);
         break;
       case "debugoffset":
-        result[field.name] = offset;
+        result[field.name] = sb.readOffset;
         break;
-      case "debugbytes":
-        result[field.name] = data.readBytes(offset, field.length);
+      case "debugbytes": {
+        const saved = sb.readOffset;
+        result[field.name] = sb.readBuffer(field.length);
+        sb.readOffset = saved;
         break;
+      }
       case "bytes":
-        const bytes = data.readBytes(offset, field.length);
-        result[field.name] = bytes;
-        offset += field.length;
+        result[field.name] = sb.readBuffer(field.length);
         break;
-      case "byteswithlength":
-        const length = data.readUInt32LE(offset);
-        offset += 4;
+      case "byteswithlength": {
+        const length = sb.readUInt32LE();
         if (length > 0) {
           if (field.fields) {
-            const element = parse(field.fields, data, offset);
-            if (element) {
-              result[field.name] = element.result;
-            }
+            const savedOffset = sb.readOffset;
+            result[field.name] = _parse(field.fields, sb);
+            sb.readOffset = savedOffset + length;
           } else {
-            const bytes = data.readBytes(offset, length);
-            result[field.name] = bytes;
+            result[field.name] = sb.readBuffer(length);
           }
-          offset += length;
         }
         break;
+      }
       case "uint32":
-        result[field.name] = data.readUInt32LE(offset);
-        offset += 4;
+        result[field.name] = sb.readUInt32LE();
         break;
       case "int32":
-        result[field.name] = data.readInt32LE(offset);
-        offset += 4;
+        result[field.name] = sb.readInt32LE();
         break;
       case "uint16":
-        result[field.name] = data.readUInt16LE(offset);
-        offset += 2;
+        result[field.name] = sb.readUInt16LE();
         break;
       case "int16":
-        result[field.name] = data.readInt16LE(offset);
-        offset += 2;
+        result[field.name] = sb.readInt16LE();
         break;
       case "uint8":
-        result[field.name] = data.readUInt8(offset);
-        offset += 1;
+        result[field.name] = sb.readUInt8();
         break;
       case "int8":
-        result[field.name] = data.readInt8(offset);
-        offset += 1;
+        result[field.name] = sb.readInt8();
         break;
       case "rgb":
         result[field.name] = {
-          r: data.readInt8(offset),
-          g: data.readInt8(offset + 1),
-          b: data.readInt8(offset + 2),
+          r: sb.readInt8(),
+          g: sb.readInt8(),
+          b: sb.readInt8(),
         };
-        offset += 3;
         break;
       case "rgba":
         result[field.name] = {
-          r: data.readInt8(offset),
-          g: data.readInt8(offset + 1),
-          b: data.readInt8(offset + 2),
-          a: data.readInt8(offset + 3),
+          r: sb.readInt8(),
+          g: sb.readInt8(),
+          b: sb.readInt8(),
+          a: sb.readInt8(),
         };
-        offset += 4;
         break;
       case "argb":
         result[field.name] = {
-          a: data.readInt8(offset),
-          r: data.readInt8(offset + 1),
-          g: data.readInt8(offset + 2),
-          b: data.readInt8(offset + 3),
+          a: sb.readInt8(),
+          r: sb.readInt8(),
+          g: sb.readInt8(),
+          b: sb.readInt8(),
         };
-        offset += 4;
         break;
       case "int64":
-      case "uint64": {
-        const value: BigInt = data.readBigInt64LE(offset);
-        offset += 8;
-        return value;
-      }
+      case "uint64":
+        return sb.readBigInt64LE();
       case "uint64string":
-      case "int64string":
+      case "int64string": {
+        const buf = sb.readBuffer(8);
         let str = "0x";
         for (let j = 7; j >= 0; j--) {
-          str += ("0" + data.readUInt8(offset + j).toString(16)).substr(-2);
+          str += ("0" + buf[j].toString(16)).substr(-2);
         }
         result[field.name] = str;
-        offset += 8;
         break;
-      case "variabletype8":
-        const vtypeidx = data.readUInt8(offset),
-          vtype = field.types[vtypeidx];
-        offset += 1;
+      }
+      case "variabletype8": {
+        const vtypeidx = sb.readUInt8();
+        const vtype = field.types[vtypeidx];
         if (vtype) {
           if (Array.isArray(vtype)) {
-            const variable = parse(vtype, data, offset);
-            offset += variable.length;
-            result[field.name] = {
-              type: vtypeidx,
-              value: variable.result,
-            };
+            result[field.name] = { type: vtypeidx, value: _parse(vtype, sb) };
           } else {
             const variableSchema = [{ name: "element", type: vtype }];
-            const variable: any = parse(variableSchema, data, offset);
-            offset += variable.length;
             result[field.name] = {
               type: vtypeidx,
-              value: variable.result.element,
+              value: _parse(variableSchema, sb).element,
             };
           }
         }
         break;
-      case "bitflags":
-        const value = data.readUInt8(offset);
+      }
+      case "bitflags": {
+        const value = sb.readUInt8();
         const flags: any = {};
         for (let j = 0; j < field.flags.length; j++) {
           const flag = field.flags[j];
           flags[flag.name] = !!(value & (1 << flag.bit));
         }
         result[field.name] = flags;
-        offset += 1;
         break;
+      }
       case "float":
-        result[field.name] = data.readFloatLE(offset);
-        offset += 4;
+        result[field.name] = sb.readFloatLE();
         break;
       case "double":
-        result[field.name] = data.readDoubleLE(offset);
-        offset += 8;
+        result[field.name] = sb.readDoubleLE();
         break;
       case "floatvector2":
-        result[field.name] = [
-          data.readFloatLE(offset),
-          data.readFloatLE(offset + 4),
-        ];
-        offset += 8;
+        result[field.name] = [sb.readFloatLE(), sb.readFloatLE()];
         break;
       case "floatvector3":
         result[field.name] = [
-          data.readFloatLE(offset),
-          data.readFloatLE(offset + 4),
-          data.readFloatLE(offset + 8),
+          sb.readFloatLE(),
+          sb.readFloatLE(),
+          sb.readFloatLE(),
         ];
-        offset += 12;
         break;
       case "floatvector4":
         result[field.name] = [
-          data.readFloatLE(offset),
-          data.readFloatLE(offset + 4),
-          data.readFloatLE(offset + 8),
-          data.readFloatLE(offset + 12),
+          sb.readFloatLE(),
+          sb.readFloatLE(),
+          sb.readFloatLE(),
+          sb.readFloatLE(),
         ];
-        offset += 16;
         break;
       case "boolean":
-        result[field.name] = !!data.readUInt8(offset);
-        offset += 1;
+        result[field.name] = !!sb.readUInt8();
         break;
       case "string": {
-        const string = data.readPrefixedStringLE(offset);
-        result[field.name] = string;
-        offset += 4 + string.length;
+        const len = sb.readUInt32LE();
+        result[field.name] = sb.readString(len, "utf8");
         break;
       }
-      case "fixedlengthstring": {
-        const string = data.toString("utf8", offset, offset + field.length);
-        result[field.name] = string;
-        offset += string.length;
+      case "fixedlengthstring":
+        result[field.name] = sb.readString(field.length, "utf8");
         break;
-      }
-      case "nullstring": {
-        const string = data.readNullTerminatedString(offset);
-        result[field.name] = string;
-        offset += 1 + string.length;
+      case "nullstring":
+        result[field.name] = sb.readStringNT("utf8");
         break;
-      }
-      case "custom":
-        const tmp = field.parser(data, offset);
+      case "custom": {
+        const tmp = field.parser(sb.internalBuffer, sb.readOffset);
         result[field.name] = tmp.value;
-        offset += tmp.length;
+        sb.readOffset += tmp.length;
         break;
+      }
     }
   }
-  return {
-    result: result,
-    length: offset - startOffset,
-  };
+  return result;
+}
+
+function parse(fields: any, dataToParse: Buffer, offset: number): any {
+  const sb = SmartBuffer.fromBuffer(dataToParse);
+  sb.readOffset = offset;
+  const result = _parse(fields || [], sb);
+  return { result, length: sb.readOffset - offset };
 }
 
 function getValueFromObject(field: any, object: any) {
-  // Check for Buffer
   if (Buffer.isBuffer(object)) {
     return object;
   }
-
-  // Check if field exists in object
   if (!object.hasOwnProperty(field.name)) {
     return getDefaultValue(field, object);
   }
-
-  // Field exists, return its value
   return object[field.name];
 }
 
 function getDefaultValue(field: any, object: any) {
-  // Check if field has a defaultValue
   if (field.hasOwnProperty("defaultValue")) {
     return field.defaultValue;
   }
-
-  // Log an error if defaultValue is not available
   throw `Field ${field.name} not found in data object: ${JSON.stringify(
     object,
     null,
@@ -405,43 +344,22 @@ function calculateDataLength(fields: any[], object: any): number {
   return length;
 }
 
-function pack(
-  fields: any,
-  object: any,
-  dataToPack?: Buffer,
-  offset?: number,
-): { data: Buffer; length: number } {
-  let data = dataToPack as h1z1Buffer;
-  if (!fields) {
-    return {
-      data: new (Buffer.alloc as any)(0),
-      length: 0,
-    };
-  }
-
-  if (!data) {
-    const dataLength = calculateDataLength(fields, object);
-    data = new (Buffer.allocUnsafe as any)(dataLength);
-  }
-  offset = offset || 0;
-  const startOffset = offset;
+function _pack(fields: any[], object: any, sb: SmartBuffer): void {
+  fields = fields || [];
   for (let index = 0; index < fields.length; index++) {
     const field: any = fields[index];
     let value = getValueFromObject(field, object);
-    let result;
     switch (field.type) {
       case "schema":
-        offset += pack(field.fields, value, data, offset).length;
+        _pack(field.fields, value, sb);
         break;
       case "array":
       case "array8":
         if (!field.fixedLength) {
           if (field.type == "array") {
-            data.writeUInt32LE(value.length, offset);
-            offset += 4;
+            sb.writeUInt32LE(value.length);
           } else {
-            data.writeUInt8(value.length, offset);
-            offset += 1;
+            sb.writeUInt8(value.length);
           }
         }
         if (field.fixedLength && field.fixedLength != value.length) {
@@ -449,171 +367,141 @@ function pack(
         }
         if (field.fields) {
           for (let j = 0; j < value.length; j++) {
-            result = pack(field.fields, value[j], data, offset);
-            offset += result.length;
+            _pack(field.fields, value[j], sb);
           }
         } else if (field.elementType) {
           const elementSchema = [{ name: "element", type: field.elementType }];
           for (let j = 0; j < value.length; j++) {
-            result = pack(elementSchema, { element: value[j] }, data, offset);
-            offset += result.length;
+            _pack(elementSchema, { element: value[j] }, sb);
           }
         } else {
           throw "Invalid array schema";
         }
         break;
       case "bytes":
-        if (!Buffer.isBuffer(value)) {
-          value = new (Buffer.from as any)(value);
-        }
-        data.writeBytes(value, offset, field.length);
-        offset += field.length;
+        if (!Buffer.isBuffer(value)) value = Buffer.from(value);
+        sb.writeBuffer(value.slice(0, field.length));
         break;
       case "byteswithlength":
         if (value) {
           if (field.fields && !Buffer.isBuffer(value)) {
-            value = pack(field.fields, value).data;
+            const subSb = new SmartBuffer();
+            _pack(field.fields, value, subSb);
+            value = subSb.toBuffer();
           }
-          if (!Buffer.isBuffer(value)) {
-            value = new (Buffer.from as any)(value);
-          }
-          data.writeUInt32LE(value.length, offset);
-          offset += 4;
-          data.writeBytes(value, offset);
-          offset += value.length;
+          if (!Buffer.isBuffer(value)) value = Buffer.from(value);
+          sb.writeUInt32LE(value.length);
+          sb.writeBuffer(value);
         } else {
-          data.writeUInt32LE(0, offset);
-          offset += 4;
+          sb.writeUInt32LE(0);
         }
         break;
       case "uint64":
-        data.writeBigUInt64LE(BigInt(value), offset);
-        offset += 8;
+        sb.writeBigUInt64LE(BigInt(value));
         break;
       case "uint64string":
       case "int64string":
         for (let j = 0; j < 8; j++) {
-          data.writeUInt8(
-            parseInt(value.substr(2 + (7 - j) * 2, 2), 16),
-            offset + j,
-          );
+          sb.writeUInt8(parseInt(value.substr(2 + (7 - j) * 2, 2), 16));
         }
-        offset += 8;
         break;
       case "uint32":
-        data.writeUInt32LE(value, offset);
-        offset += 4;
+        sb.writeUInt32LE(value);
         break;
       case "int32":
-        data.writeInt32LE(value, offset);
-        offset += 4;
+        sb.writeInt32LE(value);
         break;
       case "uint16":
-        data.writeUInt16LE(value, offset);
-        offset += 2;
+        sb.writeUInt16LE(value);
         break;
       case "int16":
-        data.writeInt16LE(value, offset);
-        offset += 2;
+        sb.writeInt16LE(value);
         break;
       case "uint8":
-        data.writeUInt8(value, offset);
-        offset += 1;
+        sb.writeUInt8(value);
         break;
       case "int8":
-        data.writeInt8(value, offset);
-        offset += 1;
+        sb.writeInt8(value);
         break;
       case "rgb":
-        data.writeInt8(value.r, offset);
-        data.writeInt8(value.g, offset + 1);
-        data.writeInt8(value.b, offset + 2);
-        offset += 3;
+        sb.writeInt8(value.r);
+        sb.writeInt8(value.g);
+        sb.writeInt8(value.b);
         break;
       case "rgba":
-        data.writeInt8(value.r, offset);
-        data.writeInt8(value.g, offset + 1);
-        data.writeInt8(value.b, offset + 2);
-        data.writeInt8(value.a, offset + 3);
-        offset += 4;
+        sb.writeInt8(value.r);
+        sb.writeInt8(value.g);
+        sb.writeInt8(value.b);
+        sb.writeInt8(value.a);
         break;
       case "argb":
-        data.writeInt8(value.a, offset);
-        data.writeInt8(value.r, offset + 1);
-        data.writeInt8(value.g, offset + 2);
-        data.writeInt8(value.b, offset + 3);
-        offset += 4;
+        sb.writeInt8(value.a);
+        sb.writeInt8(value.r);
+        sb.writeInt8(value.g);
+        sb.writeInt8(value.b);
         break;
-      case "bitflags":
+      case "bitflags": {
         let flagValue = 0;
         for (let j = 0; j < field.flags.length; j++) {
           const flag = field.flags[j];
-          if (value[flag.name]) {
-            flagValue = flagValue | (1 << flag.bit);
-          }
+          if (value[flag.name]) flagValue = flagValue | (1 << flag.bit);
         }
-        data.writeUInt8(flagValue, offset);
-        offset += 1;
+        sb.writeUInt8(flagValue);
         break;
+      }
       case "float":
-        data.writeFloatLE(value, offset);
-        offset += 4;
+        sb.writeFloatLE(value);
         break;
       case "double":
-        data.writeDoubleLE(value, offset);
-        offset += 8;
+        sb.writeDoubleLE(value);
         break;
       case "floatvector2":
-        data.writeFloatLE(value[0], offset);
-        data.writeFloatLE(value[1], offset + 4);
-        offset += 8;
+        sb.writeFloatLE(value[0]);
+        sb.writeFloatLE(value[1]);
         break;
       case "floatvector3":
-        data.writeFloatLE(value[0], offset);
-        data.writeFloatLE(value[1], offset + 4);
-        data.writeFloatLE(value[2], offset + 8);
-        offset += 12;
+        sb.writeFloatLE(value[0]);
+        sb.writeFloatLE(value[1]);
+        sb.writeFloatLE(value[2]);
         break;
       case "floatvector4":
-        data.writeFloatLE(value[0], offset);
-        data.writeFloatLE(value[1], offset + 4);
-        data.writeFloatLE(value[2], offset + 8);
-        data.writeFloatLE(value[3], offset + 12);
-        offset += 16;
+        sb.writeFloatLE(value[0]);
+        sb.writeFloatLE(value[1]);
+        sb.writeFloatLE(value[2]);
+        sb.writeFloatLE(value[3]);
         break;
       case "boolean":
-        data.writeUInt8(value ? 1 : 0, offset);
-        offset += 1;
+        sb.writeUInt8(value ? 1 : 0);
         break;
       case "string":
-        data.writePrefixedStringLE(value, offset);
-        offset += 4 + value.length;
+        sb.writeUInt32LE(value.length);
+        sb.writeString(value, "utf8");
         break;
       case "fixedlengthstring":
-        data.write(value, offset, value.length, "utf8");
-        offset += value.length;
+        sb.writeString(value, "utf8");
         break;
       case "nullstring":
-        data.writeNullTerminatedString(value, offset);
-        offset += 1 + value.length;
+        sb.writeStringNT(value, "utf8");
         break;
-      case "variabletype8":
-        data.writeUInt8(value.type, offset);
-        offset++;
+      case "variabletype8": {
+        sb.writeUInt8(value.type);
         const vtype = field.types[value.type];
         if (Array.isArray(vtype)) {
-          result = pack(vtype, value.value, data, offset);
+          _pack(vtype, value.value, sb);
         } else {
-          const variableSchema = [{ name: "element", type: vtype }];
-          result = pack(variableSchema, { element: value.value }, data, offset);
+          _pack(
+            [{ name: "element", type: vtype }],
+            { element: value.value },
+            sb,
+          );
         }
-        offset += result.length;
         break;
-      case "custom":
-        const customData = field.packer(value);
-        customData.copy(data, offset);
-        offset += customData.length;
+      }
+      case "custom": {
+        const customData: Buffer = field.packer(value);
+        sb.writeBuffer(customData);
         break;
+      }
       case "debug":
         console.error("[debug-pack]" + field.name);
         break;
@@ -621,10 +509,29 @@ function pack(
         throw `Unknown field type: ${field.type}`;
     }
   }
-  return {
-    data: data,
-    length: offset - startOffset,
-  };
+}
+
+function pack(
+  fields: any,
+  object: any,
+  dataToPack?: Buffer,
+  offset?: number,
+): { data: Buffer; length: number } {
+  if (!fields) {
+    return { data: Buffer.alloc(0), length: 0 };
+  }
+
+  if (dataToPack) {
+    const sb = SmartBuffer.fromBuffer(dataToPack);
+    sb.writeOffset = offset ?? 0;
+    const startOffset = sb.writeOffset;
+    _pack(fields, object, sb);
+    return { data: dataToPack, length: sb.writeOffset - startOffset };
+  }
+
+  const sb = new SmartBuffer();
+  _pack(fields, object, sb);
+  return { data: sb.toBuffer(), length: sb.length };
 }
 
 const dataschema = {
