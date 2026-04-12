@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "bench": "npx tsx bench.ts",
     "test": "tsc && node --test --no-experimental-strip-types",
     "install": "npm run build"
   },
