@@ -2,6 +2,11 @@ import test from "node:test";
 import assert from "node:assert";
 import dataschema from "./dataschema";
 
+// h1z1-server implementation
+export const Int64String = function (value: number): string {
+  return "0x" + ("0000000000000000" + value.toString(16)).substr(-16);
+};
+
 const roundTrip = (
   schema: any,
   value: any,
@@ -202,13 +207,20 @@ test("dataschema round-trip per type", async (t) => {
       assert.deepStrictEqual,
     );
   });
-  // await t.test("uint64", () => {
-  //   roundTrip(
-  //     [{ name: "a", type: "uint64" }],
-  //     { a: Number.MAX_SAFE_INTEGER },
-  //     assert.deepStrictEqual,
-  //   );
-  // });
+  await t.test("uint64", () => {
+    roundTrip(
+      [{ name: "a", type: "uint64" }],
+      { a: 80000n },
+      assert.deepStrictEqual,
+    );
+  });
+  await t.test("int64", () => {
+    roundTrip(
+      [{ name: "a", type: "int64" }],
+      { a: 80000n },
+      assert.deepStrictEqual,
+    );
+  });
   await t.test("uint64string", () => {
     roundTrip(
       [{ name: "a", type: "uint64string" }],
@@ -223,4 +235,20 @@ test("dataschema round-trip per type", async (t) => {
       assert.deepStrictEqual,
     );
   });
+});
+
+test("uint64 vs uint64string coherence", async (t) => {
+  const n = 13131313;
+  const uint64 = BigInt(n);
+  const uint64string = Int64String(n);
+  const v_uint64 = dataschema.pack([{ name: "a", type: "uint64" }], {
+    a: uint64,
+  });
+  const v_uint64string = dataschema.pack(
+    [{ name: "a", type: "uint64string" }],
+    {
+      a: uint64string,
+    },
+  );
+  assert.deepStrictEqual(v_uint64, v_uint64string);
 });

@@ -137,11 +137,15 @@ function parse(fields: any, dataToParse: Buffer, offset: number): any {
         };
         offset += 4;
         break;
-      case "int64":
-      case "uint64": {
-        const value: BigInt = data.readBigInt64LE(offset);
+      case "int64": {
+        result[field.name] = data.readBigInt64LE(offset);
         offset += 8;
-        return value;
+        break;
+      }
+      case "uint64": {
+        result[field.name] = data.readBigUInt64LE(offset);
+        offset += 8;
+        break;
       }
       case "uint64string":
       case "int64string":
@@ -485,6 +489,10 @@ function pack(
           data.writeUInt32LE(0, offset);
           offset += 4;
         }
+        break;
+      case "int64":
+        data.writeBigInt64LE(BigInt(value), offset);
+        offset += 8;
         break;
       case "uint64":
         data.writeBigUInt64LE(BigInt(value), offset);
